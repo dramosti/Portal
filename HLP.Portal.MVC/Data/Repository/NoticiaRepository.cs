@@ -32,7 +32,8 @@ namespace HLP.Portal.MVC.Data.Repository
                             xTitulo = c.xTitulo
                         };
                         noticia.Imagens = imagemRep.GetImagens(noticia.idNoticias, ImagemRepository.tabela.TB_NOTICIA);
-                        Noticias.Add(noticia);
+                        if (noticia.Imagens.Count() > 0)
+                            Noticias.Add(noticia);
                     });
                 }
                 return Noticias;
