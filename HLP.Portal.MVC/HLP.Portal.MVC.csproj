@@ -200,6 +200,8 @@
     <Compile Include="Models\Adm\NoticiaModel.cs" />
     <Compile Include="Models\Adm\SoliciteContatoModel.cs" />
     <Compile Include="Models\Registration\UserModel.cs" />
+    <Compile Include="Models\Sistema\ModuloModel.cs" />
+    <Compile Include="Models\Sistema\SegmentoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

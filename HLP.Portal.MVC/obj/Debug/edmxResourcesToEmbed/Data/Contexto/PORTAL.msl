@@ -82,10 +82,10 @@
         <MappingFragment StoreEntitySet="tb_segmento">
           <ScalarProperty Name="xConteudoDiferencial" ColumnName="xConteudoDiferencial" />
           <ScalarProperty Name="xTituloDiferencial" ColumnName="xTituloDiferencial" />
-          <ScalarProperty Name="xTopicoSegmento" ColumnName="xTopicoSegmento" />
-          <ScalarProperty Name="xResumidoFull" ColumnName="xResumidoFull" />
-          <ScalarProperty Name="xResumidoHome" ColumnName="xResumidoHome" />
-          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="xConteudoCompleto" ColumnName="xConteudoCompleto" />
+          <ScalarProperty Name="xTituloCompleto" ColumnName="xTituloCompleto" />
+          <ScalarProperty Name="xConteudoHome" ColumnName="xConteudoHome" />
+          <ScalarProperty Name="xTituloHome" ColumnName="xTituloHome" />
           <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
         </MappingFragment>
       </EntityTypeMapping>

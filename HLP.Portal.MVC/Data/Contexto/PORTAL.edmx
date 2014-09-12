@@ -82,10 +82,10 @@
             <PropertyRef Name="idSegmento" />
           </Key>
           <Property Name="idSegmento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="xResumidoHome" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="xResumidoFull" Type="varchar" MaxLength="1000" />
-          <Property Name="xTopicoSegmento" Type="varchar" MaxLength="500" />
+          <Property Name="xTituloHome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="xConteudoHome" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="xTituloCompleto" Type="varchar" MaxLength="100" />
+          <Property Name="xConteudoCompleto" Type="varchar" MaxLength="5000" />
           <Property Name="xTituloDiferencial" Type="varchar" MaxLength="100" />
           <Property Name="xConteudoDiferencial" Type="varchar" MaxLength="5000" />
         </EntityType>
@@ -372,10 +372,10 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
             <PropertyRef Name="idSegmento" />
           </Key>
           <Property Name="idSegmento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="xResumidoHome" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="xResumidoFull" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="xTopicoSegmento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="xTituloHome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="xConteudoHome" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="xTituloCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="xConteudoCompleto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
           <Property Name="xTituloDiferencial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="xConteudoDiferencial" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_segmento" ToRole="tb_imagem" />
@@ -560,10 +560,10 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
               <MappingFragment StoreEntitySet="tb_segmento">
                 <ScalarProperty Name="xConteudoDiferencial" ColumnName="xConteudoDiferencial" />
                 <ScalarProperty Name="xTituloDiferencial" ColumnName="xTituloDiferencial" />
-                <ScalarProperty Name="xTopicoSegmento" ColumnName="xTopicoSegmento" />
-                <ScalarProperty Name="xResumidoFull" ColumnName="xResumidoFull" />
-                <ScalarProperty Name="xResumidoHome" ColumnName="xResumidoHome" />
-                <ScalarProperty Name="xNome" ColumnName="xNome" />
+                <ScalarProperty Name="xConteudoCompleto" ColumnName="xConteudoCompleto" />
+                <ScalarProperty Name="xTituloCompleto" ColumnName="xTituloCompleto" />
+                <ScalarProperty Name="xConteudoHome" ColumnName="xConteudoHome" />
+                <ScalarProperty Name="xTituloHome" ColumnName="xTituloHome" />
                 <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -119,10 +119,10 @@
       <PropertyRef Name="idSegmento" />
     </Key>
     <Property Name="idSegmento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="xResumidoHome" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="xResumidoFull" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="xTopicoSegmento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="xTituloHome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="xConteudoHome" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="xTituloCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="xConteudoCompleto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
     <Property Name="xTituloDiferencial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="xConteudoDiferencial" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_segmento" ToRole="tb_imagem" />
