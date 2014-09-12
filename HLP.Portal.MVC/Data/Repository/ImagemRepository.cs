@@ -30,7 +30,6 @@ namespace HLP.Portal.MVC.Data.Repository
                         default:
                             break;
                     }
-
                     dados.ForEach((c) =>
                         {
                             imagens.Add(new ImagemModel
