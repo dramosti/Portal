@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\SegmentoController.cs" />
+    <Compile Include="Controllers\SoliciteContatoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Contexto\PORTAL.Context.cs">
       <AutoGen>True</AutoGen>
@@ -189,6 +190,7 @@
     <Compile Include="Data\Repository\ImagemRepository.cs" />
     <Compile Include="Data\Repository\NoticiaRepository.cs" />
     <Compile Include="Data\Repository\RegistrationRepository.cs" />
+    <Compile Include="Data\Repository\SoliciteContatoRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +198,7 @@
     <Compile Include="Models\Adm\HomeModel.cs" />
     <Compile Include="Models\Adm\ImagemModel.cs" />
     <Compile Include="Models\Adm\NoticiaModel.cs" />
+    <Compile Include="Models\Adm\SoliciteContatoModel.cs" />
     <Compile Include="Models\Registration\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -302,6 +305,8 @@
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Recovery.cshtml" />
+    <Content Include="Views\Shared\_PartialSucesso.cshtml" />
+    <Content Include="Views\SoliciteContato\Solicitar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
