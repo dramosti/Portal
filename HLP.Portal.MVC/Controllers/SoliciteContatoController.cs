@@ -23,7 +23,11 @@ namespace HLP.Portal.MVC.Controllers
         {
             SoliciteContatoRepository rep = new SoliciteContatoRepository();
 
-            rep.Save(obj: obj);
+            if (rep.Save(obj: obj))
+            {
+                TempData["Sucesso"] = "Solicitação Inserida com sucesso!";
+                return RedirectToAction("Home", "Home");
+            }
 
             return View();
         }
