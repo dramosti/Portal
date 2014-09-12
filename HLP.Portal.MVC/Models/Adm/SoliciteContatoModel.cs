@@ -10,7 +10,7 @@ namespace HLP.Portal.MVC.Models.Adm
     {
         private sbyte _stObjetivo;
 
-        [Display(Name = "Objetivo do Contato")]
+        [Display(Name = "Objetivo do Contato"), Required(ErrorMessage= "Campo Obrigatório!")]
         public sbyte stObjetivo
         {
             get { return _stObjetivo; }
@@ -18,7 +18,7 @@ namespace HLP.Portal.MVC.Models.Adm
         }
 
         private string _xMessage;
-        [Display(Name = "Mensagem")]
+        [Display(Name = "Mensagem"), Required(ErrorMessage = "Campo Obrigatório!")]
         public string xMessage
         {
             get { return _xMessage; }
@@ -42,7 +42,7 @@ namespace HLP.Portal.MVC.Models.Adm
         }
 
         private string _xEmail;
-        [Display(Name = "Email")]
+        [Display(Name = "Email"), Required(ErrorMessage = "Campo Obrigatório!")]
         public string xEmail
         {
             get { return _xEmail; }
@@ -50,20 +50,20 @@ namespace HLP.Portal.MVC.Models.Adm
         }
 
         private string _xNomeEmpresa;
-        [Display(Name = "Nome/Empresa")]
+        [Display(Name = "Nome/Empresa"), Required(ErrorMessage = "Campo Obrigatório!")]
         public string xNomeEmpresa
         {
             get { return _xNomeEmpresa; }
             set { _xNomeEmpresa = value; }
         }
 
-        private sbyte _stContatoPreferencial;
+        private sbyte? _stContatoPreferencial;
         [Display(Name = "Qual a preferência para entrarmos em contato com você?")]
-        public sbyte stContatoPreferencial
+        public sbyte? stContatoPreferencial
         {
             get { return _stContatoPreferencial; }
             set { _stContatoPreferencial = value; }
         }
-        
+
     }
 }

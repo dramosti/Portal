@@ -38,7 +38,7 @@
                                     <a href="#">Contato</a>
                                 </li>
                                 <li>
-                                    <a href="#">Ligamos para você</a>
+                                    @Html.ActionLink(linkText: "Entramos em Contato com Você", controllerName: "SoliciteContato", actionName: "Solicitar")
                                 </li>
                                 @if (Request.IsAuthenticated)
                                 {
@@ -50,7 +50,7 @@
                                 else
                                 {
                                     <li>
-                                        @Html.ActionLink("Registre-se", "Register", "User")                                       
+                                        @Html.ActionLink("Registre-se", "Register", "User")
                                     </li>
                                     <li>
                                         @Html.ActionLink("Log In", "Login", "User")
@@ -66,7 +66,7 @@
     </header>
     <section class="container">
         <div>
-            @Html.Partial("_PartialSucesso");
+            @Html.Partial("_PartialSucesso")
         </div>
     </section>
     <section class="container">
@@ -93,5 +93,6 @@
     </footer>
     @Scripts.Render("~/bundles/scripts/desktop")
     @RenderSection("SCRIPTS", required: false)
+    @RenderSection("ESTILOS", required: false)
 </body>
 </html>

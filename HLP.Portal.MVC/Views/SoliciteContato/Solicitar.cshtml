@@ -4,6 +4,36 @@
     Layout = "~/Views/Shared/_Portal.cshtml";
 }
 
+@section ESTILOS{
+    <style>
+        .field-validation-error {
+            color: red;
+            font-size: 11px;
+            font-weight: bold;
+            font-family: Verdana;
+            padding-left: 30px;
+        }
+    </style>
+}
+
+@section SCRIPTS{
+    <script>
+        $("#limpar").click(function () {
+
+            //Tomar cuidado ao usar as anotations pois ao clicar no limpar elas nao somem sozinha, temos que limpar na unha. ( manualmente ).
+            $(".field-validation-error").empty();
+
+            $("#xNomeEmpresa").focus();
+        });
+
+        $("#xTelefone")
+                .mask("(99) 9999-9999")
+
+        $("#xCelular")
+                .mask("(99) 99999-9999")
+    </script>
+}
+
 <fieldset>
     <div class="container">
         <div class="row clearfix">
@@ -22,6 +52,7 @@
                     <div>
                         @Html.LabelFor(i => i.xNomeEmpresa)
                         @Html.TextBoxFor(i => i.xNomeEmpresa, new { @class = "form-control", autofocus = "autofocus", placeholder = "Cliente ou Empresa solicitante do contato" })
+                        @Html.ValidationMessageFor(i => i.xNomeEmpresa)
                     </div>
                     <div>
                         @Html.LabelFor(i => i.stObjetivo)
@@ -29,24 +60,45 @@
                              new SelectList(new List<object>
                              {
                                  new {value = 0, text = "Cotação de Software"},
-                                 new {value = 1, text = "Reclamações"}
+                                 new {value = 1, text = "Reclamações"},
+                                 new {value = 1, text = "Demonstração de Software"}
                              }, "value", "text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(i => i.stObjetivo)
                     </div>
                     <div>
                         @Html.LabelFor(i => i.xTelefone)
                         @Html.TextBoxFor(i => i.xTelefone, new { @class = "form-control", placeholder = "(99) 9999 9999" })
+                        @Html.ValidationMessageFor(i => i.xTelefone)
                     </div>
                     <div>
                         @Html.LabelFor(i => i.xCelular)
                         @Html.TextBoxFor(i => i.xCelular, new { @class = "form-control", placeholder = "(99) 99999 9999" })
+                        @Html.ValidationMessageFor(i => i.xCelular)
                     </div>
                     <div>
                         @Html.LabelFor(i => i.xEmail)
                         @Html.TextBoxFor(i => i.xEmail, new { @class = "form-control", placeholder = "exemplo@exemplo.com.br" })
+                        @Html.ValidationMessageFor(i => i.xEmail)
                     </div>
                     <div>
-                        <input class="btn btn-danger" type="reset" id="limpar" name="limpar" value="Limpar" />
+                        @Html.LabelFor(i => i.stContatoPreferencial)
+                        @Html.DropDownListFor(i => i.stContatoPreferencial,
+                             new SelectList(new List<object>
+                             {
+                                 new {value = 0, text = "Telefone"},
+                                 new {value = 1, text = "E-Mail"},
+                                 new {value = 1, text = "Celular"}
+                             }, "value", "text"), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(i => i.stContatoPreferencial)
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xMessage)
+                        @Html.TextAreaFor(i => i.xMessage, new { @class = "form-control", placeholder = "deixe sua mensagem aqui" })
+                        @Html.ValidationMessageFor(i => i.xMessage)
+                    </div>
+                    <div>
                         <input class="btn btn-primary" type="submit" value="Solicitar Contato" />
+                        <input class="btn btn-danger" type="reset" id="limpar" name="limpar" value="Limpar" />                        
                     </div>
                     <br />
                 }
