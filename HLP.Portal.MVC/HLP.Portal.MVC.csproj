@@ -190,6 +190,7 @@
     <Compile Include="Data\Repository\ImagemRepository.cs" />
     <Compile Include="Data\Repository\NoticiaRepository.cs" />
     <Compile Include="Data\Repository\RegistrationRepository.cs" />
+    <Compile Include="Data\Repository\SegmentoRepository.cs" />
     <Compile Include="Data\Repository\SoliciteContatoRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
