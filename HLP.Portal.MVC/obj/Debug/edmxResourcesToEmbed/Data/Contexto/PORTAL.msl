@@ -55,6 +55,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tb_modulo_item">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo_item">
+        <MappingFragment StoreEntitySet="tb_modulo_item">
+          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+          <ScalarProperty Name="xDescricao" ColumnName="xDescricao" />
+          <ScalarProperty Name="idModuloItem" ColumnName="idModuloItem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tb_noticias">
       <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
         <MappingFragment StoreEntitySet="tb_noticias">
@@ -65,6 +74,19 @@
           <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
           <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
           <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_segmento">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_segmento">
+        <MappingFragment StoreEntitySet="tb_segmento">
+          <ScalarProperty Name="xConteudoDiferencial" ColumnName="xConteudoDiferencial" />
+          <ScalarProperty Name="xTituloDiferencial" ColumnName="xTituloDiferencial" />
+          <ScalarProperty Name="xTopicoSegmento" ColumnName="xTopicoSegmento" />
+          <ScalarProperty Name="xResumidoFull" ColumnName="xResumidoFull" />
+          <ScalarProperty Name="xResumidoHome" ColumnName="xResumidoHome" />
+          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -95,5 +117,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="tb_segmento_modulo" TypeName="tb_portalhlpModel.tb_segmento_modulo" StoreEntitySet="tb_segmento_modulo">
+      <EndProperty Name="tb_segmento">
+        <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
+      </EndProperty>
+      <EndProperty Name="tb_modulo">
+        <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

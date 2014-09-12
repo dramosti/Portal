@@ -5,17 +5,10 @@
     <EntitySet Name="tb_curriculum" EntityType="tb_portalhlpModel.tb_curriculum" />
     <EntitySet Name="tb_imagem" EntityType="tb_portalhlpModel.tb_imagem" />
     <EntitySet Name="tb_modulo" EntityType="tb_portalhlpModel.tb_modulo" />
+    <EntitySet Name="tb_modulo_item" EntityType="tb_portalhlpModel.tb_modulo_item" />
     <EntitySet Name="tb_noticias" EntityType="tb_portalhlpModel.tb_noticias" />
-    <EntitySet Name="tb_sistema" EntityType="tb_portalhlpModel.tb_sistema" />
+    <EntitySet Name="tb_segmento" EntityType="tb_portalhlpModel.tb_segmento" />
     <EntitySet Name="tb_solicitecontato" EntityType="tb_portalhlpModel.tb_solicitecontato" />
-    <AssociationSet Name="fk_TB_IMAGEM_TB_MODULO1" Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1">
-      <End Role="tb_modulo" EntitySet="tb_modulo" />
-      <End Role="tb_imagem" EntitySet="tb_imagem" />
-    </AssociationSet>
-    <AssociationSet Name="fk_TB_IMAGEM_TB_SISTEMA1" Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1">
-      <End Role="tb_sistema" EntitySet="tb_sistema" />
-      <End Role="tb_imagem" EntitySet="tb_imagem" />
-    </AssociationSet>
     <EntitySet Name="tb_usuario" EntityType="tb_portalhlpModel.tb_usuario" />
     <AssociationSet Name="fk_TB_USUARIO_TB_CLIENTE1" Association="tb_portalhlpModel.fk_TB_USUARIO_TB_CLIENTE1">
       <End Role="tb_cliente" EntitySet="tb_cliente" />
@@ -25,9 +18,21 @@
       <End Role="tb_usuario" EntitySet="tb_usuario" />
       <End Role="tb_curriculum" EntitySet="tb_curriculum" />
     </AssociationSet>
+    <AssociationSet Name="fk_TB_IMAGEM_TB_SEGMENTO1" Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1">
+      <End Role="tb_segmento" EntitySet="tb_segmento" />
+      <End Role="tb_imagem" EntitySet="tb_imagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_MODULO_ITEM_TB_MODULO1" Association="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1">
+      <End Role="tb_modulo" EntitySet="tb_modulo" />
+      <End Role="tb_modulo_item" EntitySet="tb_modulo_item" />
+    </AssociationSet>
     <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO">
       <End Role="tb_usuario" EntitySet="tb_usuario" />
       <End Role="tb_noticias" EntitySet="tb_noticias" />
+    </AssociationSet>
+    <AssociationSet Name="tb_segmento_modulo" Association="tb_portalhlpModel.tb_segmento_modulo">
+      <End Role="tb_modulo" EntitySet="tb_modulo" />
+      <End Role="tb_segmento" EntitySet="tb_segmento" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="tb_cliente">
@@ -73,21 +78,27 @@
     <Property Name="xComentario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="stPrincipal" Type="Boolean" Nullable="false" />
     <Property Name="idNoticias" Type="Int32" />
-    <Property Name="idModulo" Type="Int32" />
-    <Property Name="idSistema" Type="Int32" />
-    <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_imagem" ToRole="tb_modulo" />
-    <NavigationProperty Name="tb_sistema" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1" FromRole="tb_imagem" ToRole="tb_sistema" />
     <Property Name="idSegmento" Type="Int32" />
+    <NavigationProperty Name="tb_segmento" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_imagem" ToRole="tb_segmento" />
   </EntityType>
   <EntityType Name="tb_modulo">
     <Key>
       <PropertyRef Name="idModulo" />
     </Key>
     <Property Name="idModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="xConteudo" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_modulo" ToRole="tb_imagem" />
     <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_modulo_item" Relationship="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" FromRole="tb_modulo" ToRole="tb_modulo_item" />
+    <NavigationProperty Name="tb_segmento" Relationship="tb_portalhlpModel.tb_segmento_modulo" FromRole="tb_modulo" ToRole="tb_segmento" />
+  </EntityType>
+  <EntityType Name="tb_modulo_item">
+    <Key>
+      <PropertyRef Name="idModuloItem" />
+      <PropertyRef Name="idModulo" />
+    </Key>
+    <Property Name="idModuloItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="xDescricao" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idModulo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" FromRole="tb_modulo_item" ToRole="tb_modulo" />
   </EntityType>
   <EntityType Name="tb_noticias">
     <Key>
@@ -103,15 +114,19 @@
     <Property Name="idUsuario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="tb_usuario" Relationship="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" FromRole="tb_noticias" ToRole="tb_usuario" />
   </EntityType>
-  <EntityType Name="tb_sistema">
+  <EntityType Name="tb_segmento">
     <Key>
-      <PropertyRef Name="idSistema" />
+      <PropertyRef Name="idSegmento" />
     </Key>
-    <Property Name="idSistema" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="xNome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="xConteudo" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1" FromRole="tb_sistema" ToRole="tb_imagem" />
+    <Property Name="idSegmento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="xResumidoHome" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="xResumidoFull" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="xTopicoSegmento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="xTituloDiferencial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="xConteudoDiferencial" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_segmento" ToRole="tb_imagem" />
+    <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.tb_segmento_modulo" FromRole="tb_segmento" ToRole="tb_modulo" />
   </EntityType>
   <EntityType Name="tb_solicitecontato">
     <Key>
@@ -126,30 +141,6 @@
     <Property Name="xNomeEmpresa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="stContatoPreferencial" Type="SByte" />
   </EntityType>
-  <Association Name="fk_TB_IMAGEM_TB_MODULO1">
-    <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="0..1" />
-    <End Type="tb_portalhlpModel.tb_imagem" Role="tb_imagem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_modulo">
-        <PropertyRef Name="idModulo" />
-      </Principal>
-      <Dependent Role="tb_imagem">
-        <PropertyRef Name="idModulo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_TB_IMAGEM_TB_SISTEMA1">
-    <End Type="tb_portalhlpModel.tb_sistema" Role="tb_sistema" Multiplicity="0..1" />
-    <End Type="tb_portalhlpModel.tb_imagem" Role="tb_imagem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_sistema">
-        <PropertyRef Name="idSistema" />
-      </Principal>
-      <Dependent Role="tb_imagem">
-        <PropertyRef Name="idSistema" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="tb_usuario">
     <Key>
       <PropertyRef Name="idUsuario" />
@@ -189,6 +180,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_TB_IMAGEM_TB_SEGMENTO1">
+    <End Type="tb_portalhlpModel.tb_segmento" Role="tb_segmento" Multiplicity="0..1" />
+    <End Type="tb_portalhlpModel.tb_imagem" Role="tb_imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_segmento">
+        <PropertyRef Name="idSegmento" />
+      </Principal>
+      <Dependent Role="tb_imagem">
+        <PropertyRef Name="idSegmento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_MODULO_ITEM_TB_MODULO1">
+    <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="1" />
+    <End Type="tb_portalhlpModel.tb_modulo_item" Role="tb_modulo_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modulo">
+        <PropertyRef Name="idModulo" />
+      </Principal>
+      <Dependent Role="tb_modulo_item">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
     <End Type="tb_portalhlpModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
     <End Type="tb_portalhlpModel.tb_noticias" Role="tb_noticias" Multiplicity="*" />
@@ -200,5 +215,9 @@
         <PropertyRef Name="idUsuario" />
       </Dependent>
     </ReferentialConstraint>
+  </Association>
+  <Association Name="tb_segmento_modulo">
+    <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="*" />
+    <End Type="tb_portalhlpModel.tb_segmento" Role="tb_segmento" Multiplicity="*" />
   </Association>
 </Schema>

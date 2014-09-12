@@ -50,6 +50,15 @@
     <Property Name="idModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
+  <EntityType Name="tb_modulo_item">
+    <Key>
+      <PropertyRef Name="idModuloItem" />
+      <PropertyRef Name="idModulo" />
+    </Key>
+    <Property Name="idModuloItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xDescricao" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="idModulo" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="tb_noticias">
     <Key>
       <PropertyRef Name="idNoticias" />
@@ -62,6 +71,26 @@
     <Property Name="stCarrocel" Type="bit" Nullable="false" />
     <Property Name="stDestaque" Type="bit" Nullable="false" />
     <Property Name="idUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_segmento">
+    <Key>
+      <PropertyRef Name="idSegmento" />
+    </Key>
+    <Property Name="idSegmento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="xResumidoHome" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="xResumidoFull" Type="varchar" MaxLength="1000" />
+    <Property Name="xTopicoSegmento" Type="varchar" MaxLength="500" />
+    <Property Name="xTituloDiferencial" Type="varchar" MaxLength="100" />
+    <Property Name="xConteudoDiferencial" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="tb_segmento_modulo">
+    <Key>
+      <PropertyRef Name="idSegmento" />
+      <PropertyRef Name="idModulo" />
+    </Key>
+    <Property Name="idSegmento" Type="int" Nullable="false" />
+    <Property Name="idModulo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_solicitecontato">
     <Key>
@@ -103,6 +132,30 @@
   <!--Errors Found During Generation:
 warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="fk_TB_IMAGEM_TB_NOTICIAS1" />-->
+  <Association Name="fk_TB_IMAGEM_TB_SEGMENTO1">
+    <End Role="tb_segmento" Type="Self.tb_segmento" Multiplicity="0..1" />
+    <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_segmento">
+        <PropertyRef Name="idSegmento" />
+      </Principal>
+      <Dependent Role="tb_imagem">
+        <PropertyRef Name="idSegmento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_MODULO_ITEM_TB_MODULO1">
+    <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="1" />
+    <End Role="tb_modulo_item" Type="Self.tb_modulo_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modulo">
+        <PropertyRef Name="idModulo" />
+      </Principal>
+      <Dependent Role="tb_modulo_item">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
     <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
     <End Role="tb_noticias" Type="Self.tb_noticias" Multiplicity="*" />
@@ -112,6 +165,30 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
       </Principal>
       <Dependent Role="tb_noticias">
         <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1">
+    <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="1" />
+    <End Role="tb_segmento_modulo" Type="Self.tb_segmento_modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modulo">
+        <PropertyRef Name="idModulo" />
+      </Principal>
+      <Dependent Role="tb_segmento_modulo">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1">
+    <End Role="tb_segmento" Type="Self.tb_segmento" Multiplicity="1" />
+    <End Role="tb_segmento_modulo" Type="Self.tb_segmento_modulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_segmento">
+        <PropertyRef Name="idSegmento" />
+      </Principal>
+      <Dependent Role="tb_segmento_modulo">
+        <PropertyRef Name="idSegmento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -132,16 +209,35 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
     <EntitySet Name="tb_curriculum" EntityType="Self.tb_curriculum" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_imagem" EntityType="Self.tb_imagem" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_modulo_item" EntityType="Self.tb_modulo_item" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_noticias" EntityType="Self.tb_noticias" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_segmento" EntityType="Self.tb_segmento" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_segmento_modulo" EntityType="Self.tb_segmento_modulo" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_solicitecontato" EntityType="Self.tb_solicitecontato" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="tb_portalhlp" store:Type="Tables" />
     <AssociationSet Name="fk_TB_CURRICULUM_TB_USUARIO1" Association="Self.fk_TB_CURRICULUM_TB_USUARIO1">
       <End Role="tb_usuario" EntitySet="tb_usuario" />
       <End Role="tb_curriculum" EntitySet="tb_curriculum" />
     </AssociationSet>
+    <AssociationSet Name="fk_TB_IMAGEM_TB_SEGMENTO1" Association="Self.fk_TB_IMAGEM_TB_SEGMENTO1">
+      <End Role="tb_segmento" EntitySet="tb_segmento" />
+      <End Role="tb_imagem" EntitySet="tb_imagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_MODULO_ITEM_TB_MODULO1" Association="Self.fk_TB_MODULO_ITEM_TB_MODULO1">
+      <End Role="tb_modulo" EntitySet="tb_modulo" />
+      <End Role="tb_modulo_item" EntitySet="tb_modulo_item" />
+    </AssociationSet>
     <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="Self.fk_TB_NOTICIAS_TB_USUARIO">
       <End Role="tb_usuario" EntitySet="tb_usuario" />
       <End Role="tb_noticias" EntitySet="tb_noticias" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1" Association="Self.fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1">
+      <End Role="tb_modulo" EntitySet="tb_modulo" />
+      <End Role="tb_segmento_modulo" EntitySet="tb_segmento_modulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1" Association="Self.fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1">
+      <End Role="tb_segmento" EntitySet="tb_segmento" />
+      <End Role="tb_segmento_modulo" EntitySet="tb_segmento_modulo" />
     </AssociationSet>
     <AssociationSet Name="fk_TB_USUARIO_TB_CLIENTE1" Association="Self.fk_TB_USUARIO_TB_CLIENTE1">
       <End Role="tb_cliente" EntitySet="tb_cliente" />
