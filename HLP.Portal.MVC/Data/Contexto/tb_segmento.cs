@@ -21,10 +21,10 @@ namespace HLP.Portal.MVC.Data.Contexto
         }
     
         public int idSegmento { get; set; }
-        public string xNome { get; set; }
-        public string xResumidoHome { get; set; }
-        public string xResumidoFull { get; set; }
-        public string xTopicoSegmento { get; set; }
+        public string xTituloHome { get; set; }
+        public string xConteudoHome { get; set; }
+        public string xTituloCompleto { get; set; }
+        public string xConteudoCompleto { get; set; }
         public string xTituloDiferencial { get; set; }
         public string xConteudoDiferencial { get; set; }
     

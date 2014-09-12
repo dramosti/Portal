@@ -77,10 +77,10 @@
       <PropertyRef Name="idSegmento" />
     </Key>
     <Property Name="idSegmento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="xResumidoHome" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="xResumidoFull" Type="varchar" MaxLength="1000" />
-    <Property Name="xTopicoSegmento" Type="varchar" MaxLength="500" />
+    <Property Name="xTituloHome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="xConteudoHome" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="xTituloCompleto" Type="varchar" MaxLength="100" />
+    <Property Name="xConteudoCompleto" Type="varchar" MaxLength="5000" />
     <Property Name="xTituloDiferencial" Type="varchar" MaxLength="100" />
     <Property Name="xConteudoDiferencial" Type="varchar" MaxLength="5000" />
   </EntityType>
