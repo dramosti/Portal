@@ -16,14 +16,14 @@ namespace HLP.Portal.MVC.Data.Contexto
     {
         public tb_modulo()
         {
-            this.tb_imagem = new HashSet<tb_imagem>();
+            this.tb_modulo_item = new HashSet<tb_modulo_item>();
+            this.tb_segmento = new HashSet<tb_segmento>();
         }
     
         public int idModulo { get; set; }
-        public string xNome { get; set; }
-        public string xConteudo { get; set; }
         public string xTitulo { get; set; }
     
-        public virtual ICollection<tb_imagem> tb_imagem { get; set; }
+        public virtual ICollection<tb_modulo_item> tb_modulo_item { get; set; }
+        public virtual ICollection<tb_segmento> tb_segmento { get; set; }
     }
 }

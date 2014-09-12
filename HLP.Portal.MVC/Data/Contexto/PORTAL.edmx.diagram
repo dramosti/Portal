@@ -7,17 +7,19 @@
       <Diagram DiagramId="f6fdfb9430d246bd93407cdcea546dbd" Name="Diagram1">
         <EntityTypeShape EntityType="tb_portalhlpModel.tb_cliente" Width="1.5" PointX="0.75" PointY="4" />
         <EntityTypeShape EntityType="tb_portalhlpModel.tb_curriculum" Width="1.5" PointX="5.25" PointY="4.5" />
-        <EntityTypeShape EntityType="tb_portalhlpModel.tb_imagem" Width="1.5" PointX="10" PointY="1" />
-        <EntityTypeShape EntityType="tb_portalhlpModel.tb_modulo" Width="1.5" PointX="7.75" PointY="5.5" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_imagem" Width="1.5" PointX="12.25" PointY="3.875" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_modulo" Width="1.5" PointX="7.75" PointY="2.875" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_modulo_item" Width="1.5" PointX="10" PointY="1.125" />
         <EntityTypeShape EntityType="tb_portalhlpModel.tb_noticias" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="tb_portalhlpModel.tb_sistema" Width="1.5" PointX="7.75" PointY="1.375" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_segmento" Width="1.5" PointX="10" PointY="3.625" />
         <EntityTypeShape EntityType="tb_portalhlpModel.tb_solicitecontato" Width="1.5" PointX="0.75" PointY="7.75" />
-        <AssociationConnector Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" />
-        <AssociationConnector Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1" />
         <EntityTypeShape EntityType="tb_portalhlpModel.tb_usuario" Width="1.5" PointX="3" PointY="3.625" />
         <AssociationConnector Association="tb_portalhlpModel.fk_TB_USUARIO_TB_CLIENTE1" />
         <AssociationConnector Association="tb_portalhlpModel.fk_TB_CURRICULUM_TB_USUARIO1" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" />
         <AssociationConnector Association="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" />
+        <AssociationConnector Association="tb_portalhlpModel.tb_segmento_modulo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
