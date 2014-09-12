@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tb_portalhlpModelStoreContainer" CdmEntityContainer="PortalEntities">
+    <EntitySetMapping Name="tb_cliente">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_cliente">
+        <MappingFragment StoreEntitySet="tb_cliente">
+          <ScalarProperty Name="stClienteEspecial" ColumnName="stClienteEspecial" />
+          <ScalarProperty Name="xUrlImg" ColumnName="xUrlImg" />
+          <ScalarProperty Name="xFantasia" ColumnName="xFantasia" />
+          <ScalarProperty Name="xRazao" ColumnName="xRazao" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_curriculum">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_curriculum">
+        <MappingFragment StoreEntitySet="tb_curriculum">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="xInformacoesComplementares" ColumnName="xInformacoesComplementares" />
+          <ScalarProperty Name="xObjetivo" ColumnName="xObjetivo" />
+          <ScalarProperty Name="xCompetencias" ColumnName="xCompetencias" />
+          <ScalarProperty Name="xAtividadesComplementares" ColumnName="xAtividadesComplementares" />
+          <ScalarProperty Name="xFormacao" ColumnName="xFormacao" />
+          <ScalarProperty Name="xExperiencia" ColumnName="xExperiencia" />
+          <ScalarProperty Name="xSobreMim" ColumnName="xSobreMim" />
+          <ScalarProperty Name="xEstado" ColumnName="xEstado" />
+          <ScalarProperty Name="xCidade" ColumnName="xCidade" />
+          <ScalarProperty Name="xBairro" ColumnName="xBairro" />
+          <ScalarProperty Name="xEndereco" ColumnName="xEndereco" />
+          <ScalarProperty Name="xEmail" ColumnName="xEmail" />
+          <ScalarProperty Name="xCelular" ColumnName="xCelular" />
+          <ScalarProperty Name="xTelefone" ColumnName="xTelefone" />
+          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="idCurriculumVitae" ColumnName="idCurriculumVitae" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_imagem">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_imagem">
+        <MappingFragment StoreEntitySet="tb_imagem">
+          <ScalarProperty Name="idSistema" ColumnName="idSistema" />
+          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
+          <ScalarProperty Name="stPrincipal" ColumnName="stPrincipal" />
+          <ScalarProperty Name="xComentario" ColumnName="xComentario" />
+          <ScalarProperty Name="xUrlImg" ColumnName="xUrlImg" />
+          <ScalarProperty Name="idImagem" ColumnName="idImagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_modulo">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo">
+        <MappingFragment StoreEntitySet="tb_modulo">
+          <ScalarProperty Name="xConteudo" ColumnName="xConteudo" />
+          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_noticias">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
+        <MappingFragment StoreEntitySet="tb_noticias">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
+          <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
+          <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
+          <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
+          <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
+          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_sistema">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_sistema">
+        <MappingFragment StoreEntitySet="tb_sistema">
+          <ScalarProperty Name="xConteudo" ColumnName="xConteudo" />
+          <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
+          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="idSistema" ColumnName="idSistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_solicitecontato">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_solicitecontato">
+        <MappingFragment StoreEntitySet="tb_solicitecontato">
+          <ScalarProperty Name="xEmail" ColumnName="xEmail" />
+          <ScalarProperty Name="xCelular" ColumnName="xCelular" />
+          <ScalarProperty Name="xTelefone" ColumnName="xTelefone" />
+          <ScalarProperty Name="xMessage" ColumnName="xMessage" />
+          <ScalarProperty Name="stObjetivo" ColumnName="stObjetivo" />
+          <ScalarProperty Name="idSoliciteContato" ColumnName="idSoliciteContato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_usuario">
+        <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idFaceBook" ColumnName="idFaceBook" />
+          <ScalarProperty Name="xSenhaSalt" ColumnName="xSenhaSalt" />
+          <ScalarProperty Name="xSenha" ColumnName="xSenha" />
+          <ScalarProperty Name="xEmail" ColumnName="xEmail" />
+          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

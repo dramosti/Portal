@@ -1,0 +1,36 @@
+﻿@model HLP.Portal.MVC.Models.Registration.UserModel
+@{
+    ViewBag.Title = "Recovery";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <fieldset>
+                    <legend>
+                        Esqueci minha senha :(
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                @using (Html.BeginForm("Recovery", "User", FormMethod.Post, new { @class = "form-inline" }))
+                {
+                    @Html.ValidationSummary(true, "Email, não encontrado.");
+                    <div>
+                        @Html.LabelFor(c => c.xEmail)
+                        @Html.TextBoxFor(x => x.xEmail, new { @class = "form-control", autofocus = "autofocus", placeholder = "seuemail@exemplo.com" })
+                        @Html.ValidationMessageFor(x => x.xEmail)
+                    </div>
+                    <br />
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="Envie-me minha senha" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</fieldset>

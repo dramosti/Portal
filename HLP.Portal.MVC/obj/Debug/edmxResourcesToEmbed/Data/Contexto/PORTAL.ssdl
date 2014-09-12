@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tb_portalhlpModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xRazao" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="xFantasia" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="xUrlImg" Type="varchar" MaxLength="150" />
+    <Property Name="stClienteEspecial" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_curriculum">
+    <Key>
+      <PropertyRef Name="idCurriculumVitae" />
+    </Key>
+    <Property Name="idCurriculumVitae" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xNome" Type="varchar" MaxLength="100" />
+    <Property Name="xTelefone" Type="varchar" MaxLength="15" />
+    <Property Name="xCelular" Type="varchar" MaxLength="15" />
+    <Property Name="xEmail" Type="varchar" MaxLength="100" />
+    <Property Name="xEndereco" Type="varchar" MaxLength="100" />
+    <Property Name="xBairro" Type="varchar" MaxLength="45" />
+    <Property Name="xCidade" Type="varchar" MaxLength="45" />
+    <Property Name="xEstado" Type="varchar" MaxLength="2" />
+    <Property Name="xSobreMim" Type="varchar" MaxLength="300" />
+    <Property Name="xExperiencia" Type="varchar" MaxLength="300" />
+    <Property Name="xFormacao" Type="varchar" MaxLength="300" />
+    <Property Name="xAtividadesComplementares" Type="varchar" MaxLength="200" />
+    <Property Name="xCompetencias" Type="varchar" MaxLength="200" />
+    <Property Name="xObjetivo" Type="varchar" MaxLength="200" />
+    <Property Name="xInformacoesComplementares" Type="varchar" MaxLength="300" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_imagem">
+    <Key>
+      <PropertyRef Name="idImagem" />
+    </Key>
+    <Property Name="idImagem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xUrlImg" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="xComentario" Type="varchar" MaxLength="100" />
+    <Property Name="stPrincipal" Type="bit" Nullable="false" />
+    <Property Name="idNoticias" Type="int" />
+    <Property Name="idModulo" Type="int" />
+    <Property Name="idSistema" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_modulo">
+    <Key>
+      <PropertyRef Name="idModulo" />
+    </Key>
+    <Property Name="idModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="xConteudo" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_noticias">
+    <Key>
+      <PropertyRef Name="idNoticias" />
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idNoticias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xTitulo" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="xNoticia" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="dtNoticia" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="stCarrocel" Type="bit" Nullable="false" />
+    <Property Name="stDestaque" Type="bit" Nullable="false" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_sistema">
+    <Key>
+      <PropertyRef Name="idSistema" />
+    </Key>
+    <Property Name="idSistema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xNome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="xConteudo" Type="varchar" MaxLength="2000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_solicitecontato">
+    <Key>
+      <PropertyRef Name="idSoliciteContato" />
+    </Key>
+    <Property Name="idSoliciteContato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stObjetivo" Type="tinyint" Nullable="false" />
+    <Property Name="xMessage" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="xTelefone" Type="varchar" MaxLength="15" />
+    <Property Name="xCelular" Type="varchar" MaxLength="15" />
+    <Property Name="xEmail" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="xNome" Type="varchar" MaxLength="100" />
+    <Property Name="xEmail" Type="varchar" MaxLength="45" />
+    <Property Name="xSenha" Type="varchar" MaxLength="500" />
+    <Property Name="xSenhaSalt" Type="varchar" MaxLength="100" />
+    <Property Name="idFaceBook" Type="varchar" MaxLength="1000" />
+    <Property Name="idCliente" Type="int" />
+  </EntityType>
+  <Association Name="fk_TB_CURRICULUM_TB_USUARIO1">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
+    <End Role="tb_curriculum" Type="Self.tb_curriculum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="tb_curriculum">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_IMAGEM_TB_MODULO1">
+    <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="0..1" />
+    <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_modulo">
+        <PropertyRef Name="idModulo" />
+      </Principal>
+      <Dependent Role="tb_imagem">
+        <PropertyRef Name="idModulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="fk_TB_IMAGEM_TB_NOTICIAS1" />-->
+  <Association Name="fk_TB_IMAGEM_TB_SISTEMA1">
+    <End Role="tb_sistema" Type="Self.tb_sistema" Multiplicity="0..1" />
+    <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_sistema">
+        <PropertyRef Name="idSistema" />
+      </Principal>
+      <Dependent Role="tb_imagem">
+        <PropertyRef Name="idSistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+    <End Role="tb_noticias" Type="Self.tb_noticias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="tb_noticias">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TB_USUARIO_TB_CLIENTE1">
+    <End Role="tb_cliente" Type="Self.tb_cliente" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="tb_portalhlpModelStoreContainer">
+    <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_curriculum" EntityType="Self.tb_curriculum" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_imagem" EntityType="Self.tb_imagem" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_noticias" EntityType="Self.tb_noticias" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_sistema" EntityType="Self.tb_sistema" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_solicitecontato" EntityType="Self.tb_solicitecontato" Schema="tb_portalhlp" store:Type="Tables" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="tb_portalhlp" store:Type="Tables" />
+    <AssociationSet Name="fk_TB_CURRICULUM_TB_USUARIO1" Association="Self.fk_TB_CURRICULUM_TB_USUARIO1">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_curriculum" EntitySet="tb_curriculum" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_IMAGEM_TB_MODULO1" Association="Self.fk_TB_IMAGEM_TB_MODULO1">
+      <End Role="tb_modulo" EntitySet="tb_modulo" />
+      <End Role="tb_imagem" EntitySet="tb_imagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_IMAGEM_TB_SISTEMA1" Association="Self.fk_TB_IMAGEM_TB_SISTEMA1">
+      <End Role="tb_sistema" EntitySet="tb_sistema" />
+      <End Role="tb_imagem" EntitySet="tb_imagem" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="Self.fk_TB_NOTICIAS_TB_USUARIO">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_noticias" EntitySet="tb_noticias" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TB_USUARIO_TB_CLIENTE1" Association="Self.fk_TB_USUARIO_TB_CLIENTE1">
+      <End Role="tb_cliente" EntitySet="tb_cliente" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

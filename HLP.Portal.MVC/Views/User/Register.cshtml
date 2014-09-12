@@ -1,0 +1,50 @@
+﻿@model HLP.Portal.MVC.Models.Registration.UserModel
+@{
+    ViewBag.Title = "Registre-se";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <fieldset>
+                    <legend>
+                        Registre-se
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                @using (Html.BeginForm())
+                {
+                    <div>
+                        @Html.HiddenFor(x => x.idUsuario)
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.xNome)
+                        @Html.TextBoxFor(x => x.xNome, new { @class = "form-control", autofocus = "autofocus", placeholder = "Seu nome" })
+                        @Html.ValidationMessageFor(x => x.xNome)
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.xEmail)
+                        @Html.TextBoxFor(x => x.xEmail, new { @class = "form-control", autofocus = "autofocus", placeholder = "seunome@exemplo.com" })
+                        @Html.ValidationMessageFor(x => x.xEmail)
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.xSenha)
+                        @Html.PasswordFor(x => x.xSenha, new { @class = "form-control", autofocus = "autofocus", placeholder = "Senha" })
+                        @Html.ValidationMessageFor(x => x.xSenha)
+                    </div>                    
+                    <div>
+                        <input class="btn btn-danger" type="reset" id="limpar" name="limpar" value="Limpar" />
+                        <input class="btn btn-primary" type="submit" value="Cadastrar" />
+                    </div>
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+
+</fieldset>

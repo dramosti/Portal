@@ -1,0 +1,91 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    @Styles.Render("~/bundles/css/desktop")
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            <a class="navbar-brand" href="#">HLP</a>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">Soluções</a>
+                                </li>
+                                <li>
+                                    <a href="#">Notícias</a>
+                                </li>
+                                <li>
+                                    <a href="#">Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Empresa</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contato</a>
+                                </li>
+                                <li>
+                                    <a href="#">Ligamos para você</a>
+                                </li>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    <li>
+                                        <strong>@Html.Encode(User.Identity.Name)</strong>
+                                        @Html.ActionLink("Log Out", "Logout", "User")
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        @Html.ActionLink("Registre-se", "Register", "User")                                       
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Log In", "Login", "User")
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div>
+            @RenderBody()
+        </div>
+    </section>
+    <footer>
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
+            <div class="container">
+                <p style="color:white">
+                    &copy; 2014 - <strong style="color:white">HLP estratégia em sistemas.</strong>
+                    <a href="https://www.facebook.com/HLPSoftware" title="Facebook" target="_blank">
+                        <img width="12" height="12" src="~/Content/Images/img_facebook.png">
+                    </a>
+                    <small>
+                        <em style="padding-left:20px">Desenvolvido por:</em>
+                        <a href="https://www.linkedin.com/pub/diego-raphael-ramos/48/ab0/804" target="_blank">Diego Ramos</a>,
+                    </small>
+                </p>
+            </div>
+        </nav>
+    </footer>
+    @Scripts.Render("~/bundles/scripts/desktop")
+    @RenderSection("SCRIPTS", required: false)
+</body>
+</html>
