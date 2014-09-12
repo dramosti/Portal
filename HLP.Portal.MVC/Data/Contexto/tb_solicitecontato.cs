@@ -20,5 +20,7 @@ namespace HLP.Portal.MVC.Data.Contexto
         public string xTelefone { get; set; }
         public string xCelular { get; set; }
         public string xEmail { get; set; }
+        public string xNomeEmpresa { get; set; }
+        public Nullable<sbyte> stContatoPreferencial { get; set; }
     }
 }

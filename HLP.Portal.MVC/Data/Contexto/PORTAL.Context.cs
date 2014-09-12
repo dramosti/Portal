@@ -29,8 +29,9 @@ namespace HLP.Portal.MVC.Data.Contexto
         public DbSet<tb_curriculum> tb_curriculum { get; set; }
         public DbSet<tb_imagem> tb_imagem { get; set; }
         public DbSet<tb_modulo> tb_modulo { get; set; }
+        public DbSet<tb_modulo_item> tb_modulo_item { get; set; }
         public DbSet<tb_noticias> tb_noticias { get; set; }
-        public DbSet<tb_sistema> tb_sistema { get; set; }
+        public DbSet<tb_segmento> tb_segmento { get; set; }
         public DbSet<tb_solicitecontato> tb_solicitecontato { get; set; }
         public DbSet<tb_usuario> tb_usuario { get; set; }
     }

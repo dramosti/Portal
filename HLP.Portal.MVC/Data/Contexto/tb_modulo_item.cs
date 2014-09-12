@@ -12,18 +12,12 @@ namespace HLP.Portal.MVC.Data.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_sistema
+    public partial class tb_modulo_item
     {
-        public tb_sistema()
-        {
-            this.tb_imagem = new HashSet<tb_imagem>();
-        }
+        public int idModuloItem { get; set; }
+        public string xDescricao { get; set; }
+        public int idModulo { get; set; }
     
-        public int idSistema { get; set; }
-        public string xNome { get; set; }
-        public string xTitulo { get; set; }
-        public string xConteudo { get; set; }
-    
-        public virtual ICollection<tb_imagem> tb_imagem { get; set; }
+        public virtual tb_modulo tb_modulo { get; set; }
     }
 }

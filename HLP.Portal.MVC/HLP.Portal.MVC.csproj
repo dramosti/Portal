@@ -141,6 +141,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NoticiaController.cs" />
+    <Compile Include="Controllers\SegmentoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Contexto\PORTAL.Context.cs">
       <AutoGen>True</AutoGen>
@@ -169,10 +171,13 @@
     <Compile Include="Data\Contexto\tb_modulo.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Contexto\tb_modulo_item.cs">
+      <DependentUpon>PORTAL.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Contexto\tb_noticias.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Contexto\tb_sistema.cs">
+    <Compile Include="Data\Contexto\tb_segmento.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Contexto\tb_solicitecontato.cs">
@@ -181,11 +186,16 @@
     <Compile Include="Data\Contexto\tb_usuario.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Repository\ImagemRepository.cs" />
+    <Compile Include="Data\Repository\NoticiaRepository.cs" />
     <Compile Include="Data\Repository\RegistrationRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm\ClienteModel.cs" />
+    <Compile Include="Models\Adm\HomeModel.cs" />
+    <Compile Include="Models\Adm\ImagemModel.cs" />
+    <Compile Include="Models\Adm\NoticiaModel.cs" />
     <Compile Include="Models\Registration\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
