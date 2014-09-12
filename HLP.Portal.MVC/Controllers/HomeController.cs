@@ -14,6 +14,8 @@ namespace HLP.Portal.MVC.Controllers
         [Authorize]
         public ActionResult Home()
         {
+            //TODO: teste
+
             return View();
         }
 
