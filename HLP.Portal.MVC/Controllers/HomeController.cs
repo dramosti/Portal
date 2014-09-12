@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HLP.Portal.MVC.Data.Repository;
+using HLP.Portal.MVC.Models.Adm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,12 +13,14 @@ namespace HLP.Portal.MVC.Controllers
         //
         // GET: /Home/
 
-        [Authorize]
+        NoticiaRepository noticiaRep = new NoticiaRepository();
+
         public ActionResult Home()
         {
-            //TODO: teste
+            HomeModel home = new HomeModel();
+            home.CarrosselNoticias = noticiaRep.GetNoticiaCarrossel();
 
-            return View();
+            return View(model: home);
         }
 
     }

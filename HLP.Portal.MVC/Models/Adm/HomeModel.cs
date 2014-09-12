@@ -9,7 +9,7 @@ namespace HLP.Portal.MVC.Models.Adm
     {
         public HomeModel() 
         {
-
+            CarrosselNoticias = new List<NoticiaModel>();
         }
 
         public List<NoticiaModel> CarrosselNoticias { get; set; }
