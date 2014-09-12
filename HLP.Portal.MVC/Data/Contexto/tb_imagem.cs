@@ -21,6 +21,7 @@ namespace HLP.Portal.MVC.Data.Contexto
         public Nullable<int> idNoticias { get; set; }
         public Nullable<int> idModulo { get; set; }
         public Nullable<int> idSistema { get; set; }
+        public Nullable<int> idSegmento { get; set; }
     
         public virtual tb_modulo tb_modulo { get; set; }
         public virtual tb_sistema tb_sistema { get; set; }

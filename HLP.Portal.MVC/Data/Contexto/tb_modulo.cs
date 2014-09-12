@@ -22,6 +22,7 @@ namespace HLP.Portal.MVC.Data.Contexto
         public int idModulo { get; set; }
         public string xNome { get; set; }
         public string xConteudo { get; set; }
+        public string xTitulo { get; set; }
     
         public virtual ICollection<tb_imagem> tb_imagem { get; set; }
     }

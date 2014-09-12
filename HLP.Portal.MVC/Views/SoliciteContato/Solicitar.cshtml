@@ -1,0 +1,64 @@
+﻿@model HLP.Portal.MVC.Models.Adm.SoliciteContatoModel
+@{
+    ViewBag.Title = "Solicitar";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <fieldset>
+                    <legend>
+                        Solicitar Contato
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                @using (@Html.BeginForm())
+                {
+                    <div>
+                        @Html.LabelFor(i => i.xNomeEmpresa)
+                        @Html.TextBoxFor(i => i.xNomeEmpresa, new { @class = "form-control", autofocus = "autofocus", placeholder = "Cliente ou Empresa solicitante do contato" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.stObjetivo)
+                        @Html.DropDownListFor(i => i.stObjetivo,
+                             new SelectList(new List<object>
+                             {
+                                 new {value = 0, text = "Cotação de Software"},
+                                 new {value = 1, text = "Reclamações"}
+                             }, "value", "text"), new { @class = "form-control" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xTelefone)
+                        @Html.TextBoxFor(i => i.xTelefone, new { @class = "form-control", placeholder = "(99) 9999 9999" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xCelular)
+                        @Html.TextBoxFor(i => i.xCelular, new { @class = "form-control", placeholder = "(99) 99999 9999" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xEmail)
+                        @Html.TextBoxFor(i => i.xEmail, new { @class = "form-control", placeholder = "exemplo@exemplo.com.br" })
+                    </div>
+                    <div>
+                        <input class="btn btn-danger" type="reset" id="limpar" name="limpar" value="Limpar" />
+                        <input class="btn btn-primary" type="submit" value="Solicitar Contato" />
+                    </div>
+                    <br />
+                }
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <address>
+                    <strong>Hlp Estratégia em Software</strong><br>
+                    Rua 9 de Julho, 709 - 6º Andar - Sala 63<br>
+                    Ed. Novo Centro - Centro - Salto<br>
+                    <abbr title="Phone">Tel: </abbr> (11) 4028.8950
+                </address>
+            </div>
+        </div>
+    </div>
+</fieldset>

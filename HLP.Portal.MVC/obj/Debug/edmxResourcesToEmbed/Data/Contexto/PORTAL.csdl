@@ -77,6 +77,7 @@
     <Property Name="idSistema" Type="Int32" />
     <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_imagem" ToRole="tb_modulo" />
     <NavigationProperty Name="tb_sistema" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1" FromRole="tb_imagem" ToRole="tb_sistema" />
+    <Property Name="idSegmento" Type="Int32" />
   </EntityType>
   <EntityType Name="tb_modulo">
     <Key>
@@ -86,6 +87,7 @@
     <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="xConteudo" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_modulo" ToRole="tb_imagem" />
+    <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tb_noticias">
     <Key>
@@ -121,6 +123,8 @@
     <Property Name="xTelefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="xCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="xEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="xNomeEmpresa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="stContatoPreferencial" Type="SByte" />
   </EntityType>
   <Association Name="fk_TB_IMAGEM_TB_MODULO1">
     <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="0..1" />

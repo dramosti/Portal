@@ -46,16 +46,14 @@
           <Property Name="xComentario" Type="varchar" MaxLength="100" />
           <Property Name="stPrincipal" Type="bit" Nullable="false" />
           <Property Name="idNoticias" Type="int" />
-          <Property Name="idModulo" Type="int" />
-          <Property Name="idSistema" Type="int" />
+          <Property Name="idSegmento" Type="int" />
         </EntityType>
         <EntityType Name="tb_modulo">
           <Key>
             <PropertyRef Name="idModulo" />
           </Key>
           <Property Name="idModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="xConteudo" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="tb_noticias">
           <Key>
@@ -70,15 +68,6 @@
           <Property Name="stDestaque" Type="bit" Nullable="false" />
           <Property Name="idUsuario" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="tb_sistema">
-          <Key>
-            <PropertyRef Name="idSistema" />
-          </Key>
-          <Property Name="idSistema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xNome" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="xConteudo" Type="varchar" MaxLength="2000" Nullable="false" />
-        </EntityType>
         <EntityType Name="tb_solicitecontato">
           <Key>
             <PropertyRef Name="idSoliciteContato" />
@@ -89,6 +78,8 @@
           <Property Name="xTelefone" Type="varchar" MaxLength="15" />
           <Property Name="xCelular" Type="varchar" MaxLength="15" />
           <Property Name="xEmail" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="xNomeEmpresa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="stContatoPreferencial" Type="tinyint" />
         </EntityType>
         <EntityType Name="tb_usuario">
           <Key>
@@ -114,33 +105,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_TB_IMAGEM_TB_MODULO1">
-          <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="0..1" />
-          <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_modulo">
-              <PropertyRef Name="idModulo" />
-            </Principal>
-            <Dependent Role="tb_imagem">
-              <PropertyRef Name="idModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <!--Errors Found During Generation:
 warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="fk_TB_IMAGEM_TB_NOTICIAS1" />-->
-        <Association Name="fk_TB_IMAGEM_TB_SISTEMA1">
-          <End Role="tb_sistema" Type="Self.tb_sistema" Multiplicity="0..1" />
-          <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_sistema">
-              <PropertyRef Name="idSistema" />
-            </Principal>
-            <Dependent Role="tb_imagem">
-              <PropertyRef Name="idSistema" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
           <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
           <End Role="tb_noticias" Type="Self.tb_noticias" Multiplicity="*" />
@@ -171,20 +138,11 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySet Name="tb_imagem" EntityType="Self.tb_imagem" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_noticias" EntityType="Self.tb_noticias" Schema="tb_portalhlp" store:Type="Tables" />
-          <EntitySet Name="tb_sistema" EntityType="Self.tb_sistema" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_solicitecontato" EntityType="Self.tb_solicitecontato" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="tb_portalhlp" store:Type="Tables" />
           <AssociationSet Name="fk_TB_CURRICULUM_TB_USUARIO1" Association="Self.fk_TB_CURRICULUM_TB_USUARIO1">
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_curriculum" EntitySet="tb_curriculum" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TB_IMAGEM_TB_MODULO1" Association="Self.fk_TB_IMAGEM_TB_MODULO1">
-            <End Role="tb_modulo" EntitySet="tb_modulo" />
-            <End Role="tb_imagem" EntitySet="tb_imagem" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TB_IMAGEM_TB_SISTEMA1" Association="Self.fk_TB_IMAGEM_TB_SISTEMA1">
-            <End Role="tb_sistema" EntitySet="tb_sistema" />
-            <End Role="tb_imagem" EntitySet="tb_imagem" />
           </AssociationSet>
           <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="Self.fk_TB_NOTICIAS_TB_USUARIO">
             <End Role="tb_usuario" EntitySet="tb_usuario" />
@@ -276,6 +234,7 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <Property Name="idSistema" Type="Int32" />
           <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_imagem" ToRole="tb_modulo" />
           <NavigationProperty Name="tb_sistema" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SISTEMA1" FromRole="tb_imagem" ToRole="tb_sistema" />
+          <Property Name="idSegmento" Type="Int32" />
         </EntityType>
         <EntityType Name="tb_modulo">
           <Key>
@@ -285,6 +244,7 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <Property Name="xNome" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="xConteudo" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_MODULO1" FromRole="tb_modulo" ToRole="tb_imagem" />
+          <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tb_noticias">
           <Key>
@@ -320,6 +280,8 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <Property Name="xTelefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="xCelular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="xEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="xNomeEmpresa" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="stContatoPreferencial" Type="SByte" />
         </EntityType>
         <Association Name="fk_TB_IMAGEM_TB_MODULO1">
           <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="0..1" />
@@ -439,8 +401,7 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySetMapping Name="tb_imagem">
             <EntityTypeMapping TypeName="tb_portalhlpModel.tb_imagem">
               <MappingFragment StoreEntitySet="tb_imagem">
-                <ScalarProperty Name="idSistema" ColumnName="idSistema" />
-                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
                 <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
                 <ScalarProperty Name="stPrincipal" ColumnName="stPrincipal" />
                 <ScalarProperty Name="xComentario" ColumnName="xComentario" />
@@ -452,8 +413,7 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySetMapping Name="tb_modulo">
             <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo">
               <MappingFragment StoreEntitySet="tb_modulo">
-                <ScalarProperty Name="xConteudo" ColumnName="xConteudo" />
-                <ScalarProperty Name="xNome" ColumnName="xNome" />
+                <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
                 <ScalarProperty Name="idModulo" ColumnName="idModulo" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -471,19 +431,11 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_sistema">
-            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_sistema">
-              <MappingFragment StoreEntitySet="tb_sistema">
-                <ScalarProperty Name="xConteudo" ColumnName="xConteudo" />
-                <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-                <ScalarProperty Name="xNome" ColumnName="xNome" />
-                <ScalarProperty Name="idSistema" ColumnName="idSistema" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_solicitecontato">
             <EntityTypeMapping TypeName="tb_portalhlpModel.tb_solicitecontato">
               <MappingFragment StoreEntitySet="tb_solicitecontato">
+                <ScalarProperty Name="stContatoPreferencial" ColumnName="stContatoPreferencial" />
+                <ScalarProperty Name="xNomeEmpresa" ColumnName="xNomeEmpresa" />
                 <ScalarProperty Name="xEmail" ColumnName="xEmail" />
                 <ScalarProperty Name="xCelular" ColumnName="xCelular" />
                 <ScalarProperty Name="xTelefone" ColumnName="xTelefone" />

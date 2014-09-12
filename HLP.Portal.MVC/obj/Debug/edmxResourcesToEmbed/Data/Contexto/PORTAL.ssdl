@@ -41,16 +41,14 @@
     <Property Name="xComentario" Type="varchar" MaxLength="100" />
     <Property Name="stPrincipal" Type="bit" Nullable="false" />
     <Property Name="idNoticias" Type="int" />
-    <Property Name="idModulo" Type="int" />
-    <Property Name="idSistema" Type="int" />
+    <Property Name="idSegmento" Type="int" />
   </EntityType>
   <EntityType Name="tb_modulo">
     <Key>
       <PropertyRef Name="idModulo" />
     </Key>
     <Property Name="idModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="xNome" Type="varchar" MaxLength="45" Nullable="false" />
-    <Property Name="xConteudo" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_noticias">
     <Key>
@@ -65,15 +63,6 @@
     <Property Name="stDestaque" Type="bit" Nullable="false" />
     <Property Name="idUsuario" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="tb_sistema">
-    <Key>
-      <PropertyRef Name="idSistema" />
-    </Key>
-    <Property Name="idSistema" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="xNome" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="xConteudo" Type="varchar" MaxLength="2000" Nullable="false" />
-  </EntityType>
   <EntityType Name="tb_solicitecontato">
     <Key>
       <PropertyRef Name="idSoliciteContato" />
@@ -84,6 +73,8 @@
     <Property Name="xTelefone" Type="varchar" MaxLength="15" />
     <Property Name="xCelular" Type="varchar" MaxLength="15" />
     <Property Name="xEmail" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="xNomeEmpresa" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="stContatoPreferencial" Type="tinyint" />
   </EntityType>
   <EntityType Name="tb_usuario">
     <Key>
@@ -109,33 +100,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_TB_IMAGEM_TB_MODULO1">
-    <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="0..1" />
-    <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_modulo">
-        <PropertyRef Name="idModulo" />
-      </Principal>
-      <Dependent Role="tb_imagem">
-        <PropertyRef Name="idModulo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <!--Errors Found During Generation:
 warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="fk_TB_IMAGEM_TB_NOTICIAS1" />-->
-  <Association Name="fk_TB_IMAGEM_TB_SISTEMA1">
-    <End Role="tb_sistema" Type="Self.tb_sistema" Multiplicity="0..1" />
-    <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_sistema">
-        <PropertyRef Name="idSistema" />
-      </Principal>
-      <Dependent Role="tb_imagem">
-        <PropertyRef Name="idSistema" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
     <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
     <End Role="tb_noticias" Type="Self.tb_noticias" Multiplicity="*" />
@@ -166,20 +133,11 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
     <EntitySet Name="tb_imagem" EntityType="Self.tb_imagem" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_noticias" EntityType="Self.tb_noticias" Schema="tb_portalhlp" store:Type="Tables" />
-    <EntitySet Name="tb_sistema" EntityType="Self.tb_sistema" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_solicitecontato" EntityType="Self.tb_solicitecontato" Schema="tb_portalhlp" store:Type="Tables" />
     <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="tb_portalhlp" store:Type="Tables" />
     <AssociationSet Name="fk_TB_CURRICULUM_TB_USUARIO1" Association="Self.fk_TB_CURRICULUM_TB_USUARIO1">
       <End Role="tb_usuario" EntitySet="tb_usuario" />
       <End Role="tb_curriculum" EntitySet="tb_curriculum" />
-    </AssociationSet>
-    <AssociationSet Name="fk_TB_IMAGEM_TB_MODULO1" Association="Self.fk_TB_IMAGEM_TB_MODULO1">
-      <End Role="tb_modulo" EntitySet="tb_modulo" />
-      <End Role="tb_imagem" EntitySet="tb_imagem" />
-    </AssociationSet>
-    <AssociationSet Name="fk_TB_IMAGEM_TB_SISTEMA1" Association="Self.fk_TB_IMAGEM_TB_SISTEMA1">
-      <End Role="tb_sistema" EntitySet="tb_sistema" />
-      <End Role="tb_imagem" EntitySet="tb_imagem" />
     </AssociationSet>
     <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="Self.fk_TB_NOTICIAS_TB_USUARIO">
       <End Role="tb_usuario" EntitySet="tb_usuario" />
