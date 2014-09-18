@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\SegmentoController.cs" />
+    <Compile Include="Controllers\SistemaController.cs" />
     <Compile Include="Controllers\SoliciteContatoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Contexto\PORTAL.Context.cs">
@@ -310,6 +311,7 @@
     <Content Include="Views\User\Recovery.cshtml" />
     <Content Include="Views\Shared\_PartialSucesso.cshtml" />
     <Content Include="Views\SoliciteContato\Solicitar.cshtml" />
+    <Content Include="Views\Sistema\Solucoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
