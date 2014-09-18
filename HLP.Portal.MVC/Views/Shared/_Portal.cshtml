@@ -8,61 +8,54 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <nav class="navbar navbar-default" role="navigation">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                            <a class="navbar-brand" href="#">HLP</a>
-                        </div>
-
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li>
-                                    @Html.ActionLink(linkText: "Soluções", controllerName: "Sistema", actionName: "Solucoes")
-                                </li>
-                                <li>
-                                    <a href="#">Notícias</a>
-                                </li>
-                                <li>
-                                    <a href="#">Clientes</a>
-                                </li>
-                                <li>
-                                    <a href="#">Empresa</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contato</a>
-                                </li>
-                                <li>
-                                    @Html.ActionLink(linkText: "Entramos em Contato com Você", controllerName: "SoliciteContato", actionName: "Solicitar")
-                                </li>
-                                @if (Request.IsAuthenticated)
-                                {
-                                    <li>
-                                        <strong>@Html.Encode(User.Identity.Name)</strong>
-                                        @Html.ActionLink("Log Out", "Logout", "User")
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li>
-                                        @Html.ActionLink("Registre-se", "Register", "User")
-                                    </li>
-                                    <li>
-                                        @Html.ActionLink("Log In", "Login", "User")
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-
-                    </nav>
-                </div>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <a class="navbar-brand" href="#">HLP</a>
             </div>
-        </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Soluções</a>
+                    </li>
+                    <li>
+                        <a href="#">Notícias</a>
+                    </li>
+                    <li>
+                        <a href="#">Clientes</a>
+                    </li>
+                    <li>
+                        <a href="#">Empresa</a>
+                    </li>
+                    <li>
+                        <a href="#">Contato</a>
+                    </li>
+                    <li>
+                        @Html.ActionLink(linkText: "Entramos em Contato com Você", controllerName: "SoliciteContato", actionName: "Solicitar")
+                    </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            <strong>@Html.Encode(User.Identity.Name)</strong>
+                            @Html.ActionLink("Log Out", "Logout", "User")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("Registre-se", "Register", "User")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Log In", "Login", "User")
+                        </li>
+                    }
+                </ul>
+            </div>
+        </nav>
     </header>
     <section class="container">
         <div>
