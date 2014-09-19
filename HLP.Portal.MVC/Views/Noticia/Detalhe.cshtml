@@ -1,0 +1,79 @@
+﻿@model HLP.Portal.MVC.Models.Adm.NoticiaModel
+@{
+    ViewBag.Title = "Detalhe";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="col-md-6 column">
+                        <h3> @Model.xTitulo</h3>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <div class="carousel slide" id="carousel-933315">
+                                    <ol class="carousel-indicators">
+                                        @for (int count = 0; count < Model.Imagens.Count(); count++)
+                                        {
+                                            if (count == 0)
+                                            {
+                                        <li class="active" data-slide-to="@count" data-target="#carousel-261568" />
+                                            }
+                                            else
+                                            {
+                                        <li data-slide-to="@count" data-target="#carousel-261568" />
+                                            }
+                                        }
+                                    </ol>
+                                    <div class="carousel-inner">
+
+                                        @for (int i = 0; i < Model.Imagens.Count(); i++)
+                                        {
+                                            if (i == 0)
+                                            {
+                                    <div class="item active">
+                                        <img alt="" src="@Model.Imagens[i].xUrlImg" />
+                                        <div class="carousel-caption">
+                                            <h4>
+                                                @Model.Imagens[i].xComentario
+                                            </h4>
+                                        </div>
+                                    </div>
+                                            }
+                                            else
+                                            {
+                                    <div class="item">
+                                        <img alt="" src="@Model.Imagens[i].xUrlImg" />
+                                        <div class="carousel-caption">
+                                            <h4>
+                                                @Model.Imagens[i].xComentario
+                                            </h4>
+                                        </div>
+                                    </div>
+                                            }
+                                        }
+                                    </div> <a class="left carousel-control" href="#carousel-933315" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-933315" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <p>
+                            @Model.xNoticia
+                        </p>
+                    </div>
+                    <div class="col-md-6 column">
+                        <section>
+                            @Html.Partial("_PartialNoticiasDestaque")
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</fieldset>

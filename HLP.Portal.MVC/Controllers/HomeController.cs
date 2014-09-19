@@ -1,4 +1,5 @@
 ﻿using HLP.Portal.MVC.Data.Repository;
+using HLP.Portal.MVC.Models;
 using HLP.Portal.MVC.Models.Adm;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Web.Mvc;
 
 namespace HLP.Portal.MVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         //
         // GET: /Home/
@@ -17,10 +18,12 @@ namespace HLP.Portal.MVC.Controllers
 
         public ActionResult Home()
         {
-            HomeModel home = new HomeModel();
-            home.CarrosselNoticias = noticiaRep.GetNoticiaCarrossel();
+            base.SessionHomeModel = new HomeModel();
+            base.SessionHomeModel.CarrosselNoticias = noticiaRep.GetNoticiaCarrossel();
+            base.SessionHomeModel.DestaqueNoticias = noticiaRep.GetNoticiaDestaque();
 
-            return View(model: home);
+
+            return View(model: base.SessionHomeModel);
         }
 
     }
