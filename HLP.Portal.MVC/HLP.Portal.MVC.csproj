@@ -50,6 +50,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HLP.EMAIL">
+      <HintPath>..\..\HLP.EMAIL\HLP.EMAIL\bin\Debug\HLP.EMAIL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -140,11 +143,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Areas\Solucoes\Controllers\MagnificusEvolutionController.cs" />
+    <Compile Include="Areas\Solucoes\SolucoesAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\SegmentoController.cs" />
+    <Compile Include="Controllers\SistemaController.cs" />
     <Compile Include="Controllers\SoliciteContatoController.cs" />
+    <Compile Include="Controllers\TrabalheConoscoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\Contexto\PORTAL.Context.cs">
       <AutoGen>True</AutoGen>
@@ -193,10 +200,12 @@
     <Compile Include="Data\Repository\RegistrationRepository.cs" />
     <Compile Include="Data\Repository\SegmentoRepository.cs" />
     <Compile Include="Data\Repository\SoliciteContatoRepository.cs" />
+    <Compile Include="Data\Repository\TrabalheConoscoRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm\ClienteModel.cs" />
+    <Compile Include="Models\Adm\CurriculumModel.cs" />
     <Compile Include="Models\Adm\HomeModel.cs" />
     <Compile Include="Models\Adm\ImagemModel.cs" />
     <Compile Include="Models\Adm\NoticiaModel.cs" />
@@ -279,6 +288,8 @@
       <DependentUpon>PORTAL.edmx</DependentUpon>
       <LastGenOutput>PORTAL.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Solucoes\Views\Web.config" />
+    <Content Include="Areas\Solucoes\Views\MagnificusEvolution\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -317,9 +328,13 @@
     <Content Include="Views\Noticia\Noticias.cshtml" />
     <Content Include="Views\Noticia\Detalhe.cshtml" />
     <Content Include="Views\Shared\_PartialNoticiasDestaque.cshtml" />
+    <Content Include="Views\TrabalheConosco\Formulario.cshtml" />
+    <Content Include="Views\Sistema\Solucoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Solucoes\Models\" />
+    <Folder Include="Areas\Solucoes\Views\Shared\" />
     <Folder Include="Data\Firebird\" />
   </ItemGroup>
   <ItemGroup>

@@ -190,7 +190,6 @@ D:\GitHub\Portal\HLP.Portal.MVC\bin\System.Web.Razor.xml
 D:\GitHub\Portal\HLP.Portal.MVC\bin\System.Web.WebPages.xml
 D:\GitHub\Portal\HLP.Portal.MVC\bin\System.Web.WebPages.Deployment.xml
 D:\GitHub\Portal\HLP.Portal.MVC\bin\System.Web.WebPages.Razor.xml
-D:\GitHub\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.csprojResolveAssemblyReference.cache
 D:\GitHub\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.dll
 D:\GitHub\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.pdb
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\HLP.Portal.MVC.dll.config
@@ -235,3 +234,5 @@ D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\System.Web.WebPages.Razor.xml
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.dll
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.pdb
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.csprojResolveAssemblyReference.cache
+D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.dll
+D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb

@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace HLP.Portal.MVC.Areas.Solucoes.Controllers
 {
-    public class MagnificusEsController : Controller
+    public class MagnificusEvolutionController : Controller
     {
         //
-        // GET: /Solucoes/MagnificusEs/
+        // GET: /Solucoes/MagnificusEvolution/
 
         public ActionResult Index()
         {

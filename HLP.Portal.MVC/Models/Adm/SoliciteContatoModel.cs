@@ -8,6 +8,15 @@ namespace HLP.Portal.MVC.Models.Adm
 {
     public class SoliciteContatoModel
     {
+        private int _idSolicitacao;
+
+        public int idSolicitacao
+        {
+            get { return _idSolicitacao; }
+            set { _idSolicitacao = value; }
+        }
+        
+
         private sbyte _stObjetivo;
 
         [Display(Name = "Objetivo do Contato"), Required(ErrorMessage= "Campo Obrigatório!")]
