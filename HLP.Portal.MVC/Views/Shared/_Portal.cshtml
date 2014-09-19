@@ -17,10 +17,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="#">Soluções</a>
+                        <a href="~/Sistema/Solucoes">Soluções</a>
                     </li>
                     <li>
                         <a href="#">Notícias</a>
@@ -35,7 +35,10 @@
                         <a href="#">Contato</a>
                     </li>
                     <li>
-                        @Html.ActionLink(linkText: "Entramos em Contato com Você", controllerName: "SoliciteContato", actionName: "Solicitar")
+                        <a href="~/SoliciteContato/Solicitar">Entramos em contato com você</a>
+                    </li>
+                    <li>
+                        <a href="~/TrabalheConosco/Formulario">Trabalhe conosco</a>
                     </li>
                     @if (Request.IsAuthenticated)
                     {
