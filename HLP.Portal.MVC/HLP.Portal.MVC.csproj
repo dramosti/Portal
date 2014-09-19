@@ -143,12 +143,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Areas\MagnificusEs\Controllers\MagnificusEsController.cs" />
-    <Compile Include="Areas\MagnificusEs\MagnificusEsAreaRegistration.cs" />
+    <Compile Include="Areas\Solucoes\Controllers\MagnificusEvolutionController.cs" />
+    <Compile Include="Areas\Solucoes\SolucoesAreaRegistration.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
     <Compile Include="Controllers\SegmentoController.cs" />
+    <Compile Include="Controllers\SistemaController.cs" />
     <Compile Include="Controllers\SoliciteContatoController.cs" />
     <Compile Include="Controllers\TrabalheConoscoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -287,8 +288,8 @@
       <DependentUpon>PORTAL.edmx</DependentUpon>
       <LastGenOutput>PORTAL.cs</LastGenOutput>
     </Content>
-    <Content Include="Areas\MagnificusEs\Views\Web.config" />
-    <Content Include="Areas\MagnificusEs\Views\Index.cshtml" />
+    <Content Include="Areas\Solucoes\Views\Web.config" />
+    <Content Include="Areas\Solucoes\Views\MagnificusEvolution\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -328,11 +329,12 @@
     <Content Include="Views\Noticia\Detalhe.cshtml" />
     <Content Include="Views\Shared\_PartialNoticiasDestaque.cshtml" />
     <Content Include="Views\TrabalheConosco\Formulario.cshtml" />
+    <Content Include="Views\Sistema\Solucoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\MagnificusEs\Models\" />
-    <Folder Include="Areas\MagnificusEs\Views\Shared\" />
+    <Folder Include="Areas\Solucoes\Models\" />
+    <Folder Include="Areas\Solucoes\Views\Shared\" />
     <Folder Include="Data\Firebird\" />
   </ItemGroup>
   <ItemGroup>

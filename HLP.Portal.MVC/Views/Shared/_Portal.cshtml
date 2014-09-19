@@ -37,7 +37,7 @@
                         <a href="#">Contato</a>
                     </li>
                     <li>
-                        <a href="~/SoliciteContato/Solicitar">Cantatamos você</a>
+                        <a href="~/SoliciteContato/Solicitar">Solicite contato</a>
                     </li>
                     <li>
                         <a href="~/TrabalheConosco/Formulario">Trabalhe conosco</a>
@@ -46,16 +46,16 @@
                     {
                         <li>
                             <strong>@Html.Encode(User.Identity.Name)</strong>
-                            @Html.ActionLink("Log Out", "Logout", "User")
+                            <a href="~/User/Logout">Log Out</a>
                         </li>
                     }
                     else
                     {
                         <li>
-                            @Html.ActionLink("Registre-se", "Register", "User")
+                            <a href="~/User/Register">Registre-se</a>                            
                         </li>
                         <li>
-                            @Html.ActionLink("Log In", "Login", "User")
+                            <a href="~/User/Login">Log In</a>                            
                         </li>
                     }
                 </ul>
