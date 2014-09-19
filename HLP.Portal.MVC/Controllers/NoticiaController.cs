@@ -20,7 +20,7 @@ namespace HLP.Portal.MVC.Controllers
 
         public ActionResult Noticias(int? page)
         {
-            return View(noticiasRepository.GetAll().ToPagedList(pageNumber: page ?? 1, pageSize: 2));
+            return View(noticiasRepository.GetAll().ToPagedList(pageNumber: page ?? 1, pageSize: 10));
         }
 
         public ActionResult Detalhe(int id)
