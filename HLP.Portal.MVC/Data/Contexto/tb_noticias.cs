@@ -16,8 +16,9 @@ namespace HLP.Portal.MVC.Data.Contexto
     {
         public int idNoticias { get; set; }
         public string xTitulo { get; set; }
-        public string xNoticia { get; set; }
         public System.DateTime dtNoticia { get; set; }
+        public string xNoticia { get; set; }
+        public string xResumida { get; set; }
         public bool stCarrocel { get; set; }
         public bool stDestaque { get; set; }
         public int idUsuario { get; set; }

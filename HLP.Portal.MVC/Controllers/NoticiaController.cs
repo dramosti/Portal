@@ -5,27 +5,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace HLP.Portal.MVC.Controllers
 {
     public class NoticiaController : BaseController
     {
         private NoticiaRepository _NoticiasRepository = new NoticiaRepository();
-        public NoticiaRepository NoticiasRepository
+        public NoticiaRepository noticiasRepository
         {
             get { return _NoticiasRepository; }
             set { _NoticiasRepository = value; }
         }
-        
 
-        public ActionResult Noticias()
+        public ActionResult Noticias(int? page)
         {
-            return View();
+            return View(noticiasRepository.GetAll().ToPagedList(pageNumber: page ?? 1, pageSize: 2));
         }
 
         public ActionResult Detalhe(int id)
         {
-            return View(this.NoticiasRepository.GetNoticia(id));
+            return View(this.noticiasRepository.GetNoticia(id));
         }
 
 

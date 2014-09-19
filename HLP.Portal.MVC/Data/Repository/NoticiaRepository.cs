@@ -28,6 +28,7 @@ namespace HLP.Portal.MVC.Data.Repository
                             dtNoticia = c.dtNoticia,
                             stCarrocel = c.stCarrocel,
                             stDestaque = c.stDestaque,
+                            xResumida = c.xResumida,
                             xNoticia = c.xNoticia,
                             xTitulo = c.xTitulo
                         };
@@ -62,6 +63,7 @@ namespace HLP.Portal.MVC.Data.Repository
                             dtNoticia = c.dtNoticia,
                             stCarrocel = c.stCarrocel,
                             stDestaque = c.stDestaque,
+                            xResumida = c.xResumida,
                             xNoticia = c.xNoticia,
                             xTitulo = c.xTitulo
                         };
@@ -94,12 +96,47 @@ namespace HLP.Portal.MVC.Data.Repository
                         dtNoticia = c.dtNoticia,
                         stCarrocel = c.stCarrocel,
                         stDestaque = c.stDestaque,
+                        xResumida = c.xResumida,
                         xNoticia = c.xNoticia,
                         xTitulo = c.xTitulo
                     };
                     noticia.Imagens = imagemRep.GetImagens(noticia.idNoticias, ImagemRepository.tabela.TB_NOTICIA);
                 }
                 return noticia;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<NoticiaModel> GetAll()
+        {
+            try
+            {
+                var Noticias = new List<NoticiaModel>();
+                ImagemRepository imagemRep = new ImagemRepository();
+                using (var db = new PortalEntities())
+                {
+                    var dados = db.tb_noticias.Where(c=> !c.stCarrocel).OrderBy(c=>c.dtNoticia).ToList();
+
+                    dados.ForEach((c) =>
+                    {
+                        var noticia = new NoticiaModel
+                        {
+                            idNoticias = c.idNoticias,
+                            dtNoticia = c.dtNoticia,
+                            stCarrocel = c.stCarrocel,
+                            stDestaque = c.stDestaque,
+                            xNoticia = c.xNoticia,
+                            xResumida = c.xResumida,
+                            xTitulo = c.xTitulo
+                        };
+                        noticia.Imagens = imagemRep.GetImagens(noticia.idNoticias, ImagemRepository.tabela.TB_NOTICIA);
+                        Noticias.Add(noticia);
+                    });
+                }
+                return Noticias;
             }
             catch (Exception ex)
             {

@@ -64,19 +64,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_noticias">
-      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
-        <MappingFragment StoreEntitySet="tb_noticias">
-          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-          <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
-          <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
-          <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
-          <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
-          <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tb_segmento">
       <EntityTypeMapping TypeName="tb_portalhlpModel.tb_segmento">
         <MappingFragment StoreEntitySet="tb_segmento">
@@ -125,5 +112,19 @@
         <ScalarProperty Name="idModulo" ColumnName="idModulo" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="tb_noticias">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
+        <MappingFragment StoreEntitySet="tb_noticias">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
+          <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
+          <ScalarProperty Name="xResumida" ColumnName="xResumida" />
+          <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
+          <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
+          <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
+          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
