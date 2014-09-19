@@ -1,0 +1,126 @@
+﻿@model HLP.Portal.MVC.Models.Adm.CurriculumModel
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+@section ESTILOS{
+    <style>
+        .field-validation-error {
+            color: red;
+            font-size: 11px;
+            font-weight: bold;
+            font-family: Verdana;
+            padding-left: 30px;
+        }
+    </style>
+}
+
+@section SCRIPTS{
+    <script>
+        $("#limpar").click(function () {
+
+            //Tomar cuidado ao usar as anotations pois ao clicar no limpar elas nao somem sozinha, temos que limpar na unha. ( manualmente ).
+            $(".field-validation-error").empty();
+
+            $("#xNomeEmpresa").focus();
+        });
+    </script>
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <fieldset>
+                    <legend>
+                        Curriculum
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                @using (@Html.BeginForm())
+                {
+                    <div>
+                        @Html.HiddenFor(i => i.idCurriculumVitae)
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xNome)
+                        @Html.TextBoxFor(i => i.xNome, new { @class = "form-control", placeholder = "Nome Completo" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xTelefone)
+                        @Html.TextBoxFor(i => i.xTelefone, new { @class = "form-control", placeholder = "(99) 9999 9999" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xCelular)
+                        @Html.TextBoxFor(i => i.xCelular, new { @class = "form-control", placeholder = "(99) 99999 9999" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xEmail)
+                        @Html.TextBoxFor(i => i.xEmail, new { @class = "form-control", placeholder = "exemplo@exemplo.com.br" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xEndereco)
+                        @Html.TextBoxFor(i => i.xEndereco, new { @class = "form-control", placeholder = "Endereço e Número" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xBairro)
+                        @Html.TextBoxFor(i => i.xBairro, new { @class = "form-control", placeholder = "Nome do Bairro" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xCidade)
+                        @Html.TextBoxFor(i => i.xCidade, new { @class = "form-control", placeholder = "Nome da Cidade" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xEstado)
+                        @Html.TextBoxFor(i => i.xEstado, new { @class = "form-control", placeholder = "Nome do Bairro" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xSobreMim)
+                        @Html.TextAreaFor(i => i.xSobreMim, new { @class = "form-control", placeholder = "Escreva um pouco sobre você" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xExperiencia)
+                        @Html.TextAreaFor(i => i.xExperiencia, new { @class = "form-control", placeholder = "Conte-nos um pouco sobre sua experiência profissional" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xFormacao)
+                        @Html.TextAreaFor(i => i.xFormacao, new { @class = "form-control", placeholder = "Conte-nos um pouco sobre sua formação academica" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xAtividadesComplementares)
+                        @Html.TextAreaFor(i => i.xAtividadesComplementares, new { @class = "form-control", placeholder = "Escreva sobre Atividades complementares que vc já realizou" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xCompetencias)
+                        @Html.TextAreaFor(i => i.xCompetencias, new { @class = "form-control", placeholder = "Conte-nos sobre suas competências" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xObjetivo)
+                        @Html.TextAreaFor(i => i.xObjetivo, new { @class = "form-control", placeholder = "Conte-nos qual seu objetivo ao trabalhar conosco" })
+                    </div>
+                    <div>
+                        @Html.LabelFor(i => i.xInformacoesComplementares)
+                        @Html.TextAreaFor(i => i.xInformacoesComplementares, new { @class = "form-control", placeholder = "Escreva informações complementares que sobre você" })
+                    </div>
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="Registrar Curriculum" />
+                        <input class="btn btn-danger" type="reset" id="limpar" name="limpar" value="Limpar" />
+                    </div>
+                    <br />
+                }
+            </div>
+            <div class="col-xs-6 col-md-4">
+                <address>
+                    <strong>Hlp Estratégia em Software</strong><br>
+                    Rua 9 de Julho, 709 - 6º Andar - Sala 63<br>
+                    Ed. Novo Centro - Centro - Salto<br>
+                    <abbr title="Phone">Tel: </abbr> (11) 4028.8950
+                </address>
+            </div>
+        </div>
+    </div>
+</fieldset>
