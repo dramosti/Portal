@@ -26,13 +26,15 @@ namespace HLP.Portal.MVC.Controllers
             SoliciteContatoRepository rep = new SoliciteContatoRepository();
             string emailFrom = System.Configuration.ConfigurationManager.AppSettings[name: "emailGuest"];
             string emailTo = System.Configuration.ConfigurationManager.AppSettings[name: "email"];
+            string passwordEmailFrom = System.Configuration.ConfigurationManager.AppSettings[name: "senhaEmailGuest"];
 
             if (rep.Save(obj: obj))
             {
                 TempData["Sucesso"] = "Solicitação Inserida com sucesso!";
 
 
-                if (emailFrom != null && emailTo != null)
+                if (!string.IsNullOrEmpty(value: emailFrom) && !string.IsNullOrEmpty(value: emailTo)
+                    && !string.IsNullOrEmpty(value: passwordEmailFrom))
                 {
                     StringBuilder sb = new StringBuilder();
                     sb.Append(value: obj.xNomeEmpresa + " solicitou contato");
@@ -46,7 +48,7 @@ namespace HLP.Portal.MVC.Controllers
                             nPort = 587
                         });
 
-                    email.SendEmail(mailFrom: emailFrom, mailTo: emailTo, xSubject: "Aviso de Solicitação!", xBody: sb.ToString(), xPassword: "Uti1992yama");
+                    email.SendEmail(mailFrom: emailFrom, mailTo: emailTo, xSubject: "Aviso de Solicitação!", xBody: sb.ToString(), xPassword: passwordEmailFrom);
                 }
 
                 return RedirectToAction("Home", "Home");

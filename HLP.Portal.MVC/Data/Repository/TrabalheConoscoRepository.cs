@@ -14,6 +14,40 @@ namespace HLP.Portal.MVC.Data.Repository
 
         }
 
+        public CurriculumModel GetCurriculumByEmail(string xEmail)
+        {
+            using (var con = new PortalEntities())
+            {
+                tb_curriculum objCurrDb = con.tb_curriculum.FirstOrDefault(i => i.xEmail == xEmail);
+
+                if (objCurrDb != null)
+                {
+                    return new CurriculumModel
+                    {
+                        idCurriculumVitae = objCurrDb.idCurriculumVitae,
+                        idUsuario = objCurrDb.idUsuario,
+                        xAtividadesComplementares = objCurrDb.xAtividadesComplementares,
+                        xBairro = objCurrDb.xBairro,
+                        xCelular = objCurrDb.xCelular,
+                        xCidade = objCurrDb.xCidade,
+                        xCompetencias = objCurrDb.xCompetencias,
+                        xEmail = objCurrDb.xEmail,
+                        xEndereco = objCurrDb.xEndereco,
+                        xEstado = objCurrDb.xEstado,
+                        xExperiencia = objCurrDb.xExperiencia,
+                        xFormacao = objCurrDb.xFormacao,
+                        xInformacoesComplementares = objCurrDb.xInformacoesComplementares,
+                        xNome = objCurrDb.xNome,
+                        xObjetivo = objCurrDb.xObjetivo,
+                        xSobreMim = objCurrDb.xSobreMim,
+                        xTelefone = objCurrDb.xTelefone
+                    };
+                }
+
+                return new CurriculumModel();
+            }
+        }
+
         public bool Save(CurriculumModel objCurriculum)
         {
             using (var con = new PortalEntities())
@@ -50,6 +84,7 @@ namespace HLP.Portal.MVC.Data.Repository
                 try
                 {
                     con.SaveChanges();
+                    objCurriculum.idCurriculumVitae = objDbCurriculum.idCurriculumVitae;
                     return true;
                 }
                 catch (Exception ex)
