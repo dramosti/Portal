@@ -3,17 +3,11 @@ Input Mask plugin extensions
 http://github.com/RobinHerbots/jquery.inputmask
 Copyright (c) 2010 - 2014 Robin Herbots
 Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
-Version: 3.1.10
+Version: 0.0.0
 
 Optional extensions on the jquery.inputmask base
 */
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery', './jquery.inputmask'], factory);
-    } else {
-        factory(jQuery);
-    }
-}(function ($) {
+(function ($) {
     //date & time aliases
     $.extend($.inputmask.defaults.definitions, {
         'h': { //hours
@@ -493,4 +487,4 @@ Optional extensions on the jquery.inputmask base
     });
 
     return $.fn.inputmask;
-}));
+})(jQuery);

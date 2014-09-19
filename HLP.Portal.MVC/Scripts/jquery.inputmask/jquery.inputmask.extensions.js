@@ -3,17 +3,11 @@ Input Mask plugin extensions
 http://github.com/RobinHerbots/jquery.inputmask
 Copyright (c) 2010 - 2014 Robin Herbots
 Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
-Version: 3.1.10
+Version: 0.0.0
 
 Optional extensions on the jquery.inputmask base
 */
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['jquery', './jquery.inputmask'], factory);
-    } else {
-        factory(jQuery);
-    }
-}(function ($) {
+(function ($) {
     //extra definitions
     $.extend($.inputmask.defaults.definitions, {
         'A': {
@@ -109,7 +103,7 @@ Optional extensions on the jquery.inputmask base
             }
         },
         "email": {
-            mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+            mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,20}][.*{2,6}][.*{1,2}]",
             greedy: false,
             onBeforePaste: function (pastedValue, opts) {
                 pastedValue = pastedValue.toLowerCase();
@@ -125,4 +119,4 @@ Optional extensions on the jquery.inputmask base
         }
     });
     return $.fn.inputmask;
-}));
+})(jQuery);

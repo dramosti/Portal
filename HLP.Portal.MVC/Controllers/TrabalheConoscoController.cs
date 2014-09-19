@@ -22,7 +22,7 @@ namespace HLP.Portal.MVC.Controllers
 
             if(rep.Save(objCurriculum: objCurriculum))
             {
-                TempData["Sucesso"] = "Solicitação Inserida com sucesso!";
+                TempData["Sucesso"] = "Curriculum cadastrado com sucesso!";
                 return RedirectToAction("Home", "Home");
             }
 

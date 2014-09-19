@@ -23,8 +23,12 @@
             //Tomar cuidado ao usar as anotations pois ao clicar no limpar elas nao somem sozinha, temos que limpar na unha. ( manualmente ).
             $(".field-validation-error").empty();
 
-            $("#xNomeEmpresa").focus();
+            $("#xNome").focus();
         });
+
+        $("#xNome").focus();
+        $("#xTelefone").mask("(99) 9999-9999");
+        $("#xCelular").mask("(99) 9999-9999");
     </script>
 }
 
