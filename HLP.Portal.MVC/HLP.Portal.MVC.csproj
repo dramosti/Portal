@@ -145,6 +145,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Areas\Solucoes\Controllers\MagnificusEvolutionController.cs" />
     <Compile Include="Areas\Solucoes\SolucoesAreaRegistration.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoticiaController.cs" />
@@ -331,6 +332,7 @@
     <Content Include="Views\TrabalheConosco\Formulario.cshtml" />
     <Content Include="Views\Sistema\Solucoes.cshtml" />
     <Content Include="Views\Shared\_PartialEndereco.cshtml" />
+    <Content Include="Views\Cliente\NossosClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
