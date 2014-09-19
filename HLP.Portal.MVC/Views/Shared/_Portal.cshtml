@@ -3,10 +3,22 @@
 
 <html>
 <head>
-    <title></title>
-    @Scripts.Render("~/bundles/scripts/desktop");
-
+    <meta charset="utf-8" />
+    <title>HLP Estratégia em software</title>
+    <link href="~/Content/Images/icone_hlp.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/scripts/desktop")
     @Styles.Render("~/bundles/css/desktop")
+    <script>
+    $(document).ready(function () {
+        $(".nav li").on("click", function ()
+        {
+            $(".nav li").removeClass("active");
+            $(this).addClass("active");
+        });
+    })
+
+</script>
 </head>
 <body>
     <header>
@@ -18,7 +30,7 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li>
                         <a href="/">Home</a>
                     </li>
                     <li>
@@ -52,10 +64,10 @@
                     else
                     {
                         <li>
-                            <a href="~/User/Register">Registre-se</a>                            
+                            <a href="~/User/Register">Registre-se</a>
                         </li>
                         <li>
-                            <a href="~/User/Login">Log In</a>                            
+                            <a href="~/User/Login">Log In</a>
                         </li>
                     }
                 </ul>

@@ -53,7 +53,7 @@ namespace HLP.Portal.MVC.Data.Repository
                 ImagemRepository imagemRep = new ImagemRepository();
                 using (var db = new PortalEntities())
                 {
-                    var dados = db.tb_noticias.Where(c => c.stDestaque).Take(3).ToList();
+                    var dados = db.tb_noticias.Where(c => c.stDestaque).Take(4).ToList();
 
                     dados.ForEach((c) =>
                     {
