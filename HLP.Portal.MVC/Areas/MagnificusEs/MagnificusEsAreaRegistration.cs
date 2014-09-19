@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace HLP.Portal.MVC.Areas.Solucoes
+namespace HLP.Portal.MVC.Areas.MagnificusEs
 {
-    public class SolucoesAreaRegistration : AreaRegistration
+    public class MagnificusEsAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "Solucoes";
+                return "MagnificusEs";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Solucoes_default",
-                "Solucoes/{controller}/{action}/{id}",
+                "MagnificusEs_default",
+                "MagnificusEs/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

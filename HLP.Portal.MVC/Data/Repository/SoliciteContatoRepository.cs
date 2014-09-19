@@ -19,8 +19,7 @@ namespace HLP.Portal.MVC.Data.Repository
         {
             using (var con = new PortalEntities())
             {
-                con.tb_solicitecontato.Add(entity:
-                    new tb_solicitecontato
+                tb_solicitecontato objTbSolicitacao = new tb_solicitecontato
                     {
                         stObjetivo = obj.stObjetivo,
                         xCelular = obj.xCelular,
@@ -29,11 +28,15 @@ namespace HLP.Portal.MVC.Data.Repository
                         xTelefone = obj.xTelefone,
                         xNomeEmpresa = obj.xNomeEmpresa,
                         stContatoPreferencial = obj.stContatoPreferencial
-                    });
+                    };
+
+                con.tb_solicitecontato.Add(entity:
+                    objTbSolicitacao);
 
                 try
                 {
                     con.SaveChanges();
+                    obj.idSolicitacao = objTbSolicitacao.idSoliciteContato;
                     return true;
                 }
                 catch (DbEntityValidationException e)
