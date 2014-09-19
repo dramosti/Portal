@@ -10,13 +10,15 @@
         <div class="row clearfix">
             <div class="col-md-12 column">
                 <div class="row clearfix">
-                    <div class="col-md-6 column">
+                    <div class="col-md-8 column">
                         <h3> @Model.xTitulo</h3>
-                        <div class="row clearfix">
-                            <div class="col-md-12 column">
-                                <div class="carousel slide" id="carousel-933315">
-                                    <ol class="carousel-indicators">
-                                        @for (int count = 0; count < Model.Imagens.Count(); count++)
+                        @if (Model.Imagens.Count() > 0)
+                        {
+                            <div class="row clearfix">
+                                <div class="col-md-12 column">
+                                    <div class="carousel slide" id="carousel-933315">
+                                        <ol class="carousel-indicators">
+                                            @for (int count = 0; count < Model.Imagens.Count(); count++)
                                         {
                                             if (count == 0)
                                             {
@@ -27,10 +29,10 @@
                                         <li data-slide-to="@count" data-target="#carousel-261568" />
                                             }
                                         }
-                                    </ol>
-                                    <div class="carousel-inner">
+                                        </ol>
+                                        <div class="carousel-inner">
 
-                                        @for (int i = 0; i < Model.Imagens.Count(); i++)
+                                            @for (int i = 0; i < Model.Imagens.Count(); i++)
                                         {
                                             if (i == 0)
                                             {
@@ -55,16 +57,17 @@
                                     </div>
                                             }
                                         }
-                                    </div> <a class="left carousel-control" href="#carousel-933315" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-933315" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                        </div> <a class="left carousel-control" href="#carousel-933315" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-933315" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                         <br />
                         <p>
                             @Model.xNoticia
                         </p>
                     </div>
-                    <div class="col-md-6 column">
+                    <div class="col-md-4 column">
                         <section>
                             @Html.Partial("_PartialNoticiasDestaque")
                         </section>

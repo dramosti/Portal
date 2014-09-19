@@ -10,6 +10,7 @@ namespace HLP.Portal.MVC.Models.Adm
         public int idNoticias { get; set; }
 
         public string xTitulo { get; set; }
+        public string xResumida { get; set; }
 
         public string xNoticia { get; set; }
 

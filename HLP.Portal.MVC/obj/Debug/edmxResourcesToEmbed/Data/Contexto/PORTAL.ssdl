@@ -66,8 +66,9 @@
     </Key>
     <Property Name="idNoticias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="xTitulo" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="xNoticia" Type="varchar" MaxLength="5000" Nullable="false" />
     <Property Name="dtNoticia" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="xNoticia" Type="varchar" MaxLength="5000" Nullable="false" />
+    <Property Name="xResumida" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="stCarrocel" Type="bit" Nullable="false" />
     <Property Name="stDestaque" Type="bit" Nullable="false" />
     <Property Name="idUsuario" Type="int" Nullable="false" />
