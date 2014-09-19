@@ -19,6 +19,12 @@ namespace HLP.Portal.MVC.Models.Adm
 
         public bool stDestaque { get; set; }
 
-        public List<ImagemModel> Imagens { get; set; }
+        private List<ImagemModel> _Imagens = new List<ImagemModel>();
+
+        public List<ImagemModel> Imagens
+        {
+            get { return _Imagens; }
+            set { _Imagens = value; }
+        }
     }
 }

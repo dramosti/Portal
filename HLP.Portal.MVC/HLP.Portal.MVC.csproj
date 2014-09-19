@@ -200,6 +200,7 @@
     <Compile Include="Models\Adm\ImagemModel.cs" />
     <Compile Include="Models\Adm\NoticiaModel.cs" />
     <Compile Include="Models\Adm\SoliciteContatoModel.cs" />
+    <Compile Include="Models\BaseController.cs" />
     <Compile Include="Models\Registration\UserModel.cs" />
     <Compile Include="Models\Sistema\ModuloModel.cs" />
     <Compile Include="Models\Sistema\SegmentoModel.cs" />
@@ -310,6 +311,9 @@
     <Content Include="Views\User\Recovery.cshtml" />
     <Content Include="Views\Shared\_PartialSucesso.cshtml" />
     <Content Include="Views\SoliciteContato\Solicitar.cshtml" />
+    <Content Include="Views\Noticia\Noticias.cshtml" />
+    <Content Include="Views\Noticia\Detalhe.cshtml" />
+    <Content Include="Views\Shared\_PartialNoticiasDestaque.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
