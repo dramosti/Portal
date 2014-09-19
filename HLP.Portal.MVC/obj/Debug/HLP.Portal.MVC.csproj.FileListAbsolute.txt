@@ -236,3 +236,5 @@ D:\GitHub\HLP\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.pdb
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.csprojResolveAssemblyReference.cache
 D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.dll
 D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb

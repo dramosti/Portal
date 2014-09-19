@@ -50,8 +50,7 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="HLP.EMAIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="HLP.EMAIL">
       <HintPath>G:\CSharp\Desenvolvimento\Projetos\HLP.DLLS\HLP.EMAIL.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -228,7 +227,7 @@
     <Content Include="Content\Images\carrossel_1.jpg" />
     <Content Include="Content\Images\carrossel_2.jpg" />
     <Content Include="Content\Images\carrossel_3.jpg" />
-    <Content Include="Content\Images\icone hlp.ico" />
+    <Content Include="Content\Images\icone_hlp.ico" />
     <Content Include="Content\Images\img_facebook.png" />
     <Content Include="Content\Images\img_logohlp.png" />
     <Content Include="Content\PagedList.css" />
@@ -331,6 +330,7 @@
     <Content Include="Views\Shared\_PartialNoticiasDestaque.cshtml" />
     <Content Include="Views\TrabalheConosco\Formulario.cshtml" />
     <Content Include="Views\Sistema\Solucoes.cshtml" />
+    <Content Include="Views\Shared\_PartialEndereco.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
