@@ -16,7 +16,6 @@
                 $(this).addClass("active");
             });
         })
-
     </script>
 </head>
 <body>
@@ -36,11 +35,20 @@
                     <section id="login">
                         @if (Request.IsAuthenticated)
                         {
-                            string xFullName = (Session["user"] as HLP.Portal.MVC.Models.Registration.UserModel).xFullName;
+                            if (Session["user"] != null)
+                            {
+                                string xFullName = (Session["user"] as HLP.Portal.MVC.Models.Registration.UserModel).xFullName;
 
-                            <text>
-                                Olá, @xFullName  @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" }), <a href="~/User/Logout">Sair</a>
-                            </text>
+                                <text>
+                                    Olá, @xFullName  @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" }), <a href="~/User/Logout">Sair</a>
+                                </text>
+                            }
+                            else
+                            {
+                                <text>
+                                    Olá, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" }), <a href="~/User/Logout">Sair</a>
+                                </text>
+                            }
                         }
                     </section>
                     <nav class="navbar navbar-default" role="navigation">

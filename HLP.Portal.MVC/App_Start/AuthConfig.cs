@@ -25,7 +25,11 @@ namespace HLP.Portal.MVC.App_Start
                 appId: "1499164286997471",
                 appSecret: "16d4b63a5f639747662119cdeb8468f4");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            //OAuthWebSecurity.RegisterGoogleClient
+            //    (
+                
+            //    );
+            
         }
     }
 }

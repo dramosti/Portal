@@ -12,6 +12,8 @@ namespace HLP.Portal.MVC.Controllers
 {
     public class BaseController : Controller
     {
+        RegistrationRepository repository = new RegistrationRepository();
+
         public HomeModel SessionHomeModel
         {
             get { return Session["home"] != null ? Session["home"] as HomeModel : new HomeModel(); }
@@ -20,7 +22,25 @@ namespace HLP.Portal.MVC.Controllers
 
         public UserModel SessionUserModel
         {
-            get { return Session["user"] != null ? Session["user"] as UserModel : new UserModel(); }
+            get
+            {
+                if (Request != null)
+                {
+                    if (Session["user"] == null && Request.IsAuthenticated)
+                    {
+                        Session["user"] = repository.GetUser(User.Identity.Name);
+                    }
+                    else if(Session["user"] == null)
+                    {
+                        Session["user"] = new UserModel();
+                    }
+                }
+                else
+                {
+                    Session["user"] = new UserModel();
+                }
+                return Session["user"] as UserModel;
+            }
             set
             {
                 Session.Add("user", value);

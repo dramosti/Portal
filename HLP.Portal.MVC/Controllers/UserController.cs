@@ -17,7 +17,7 @@ namespace HLP.Portal.MVC.Controllers
 
 
         public ActionResult LogIn()
-        {
+        {            
             return View();
         }
 
