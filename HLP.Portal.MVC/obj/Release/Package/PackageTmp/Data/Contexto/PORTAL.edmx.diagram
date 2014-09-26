@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f6fdfb9430d246bd93407cdcea546dbd" Name="Diagram1">
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_cliente" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_curriculum" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_imagem" Width="1.5" PointX="13.25" PointY="1.375" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_modulo" Width="1.5" PointX="7.75" PointY="2.875" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_modulo_item" Width="1.5" PointX="10" PointY="4.625" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_segmento" Width="2" PointX="10" PointY="1.125" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_solicitecontato" Width="1.5" PointX="1.5" PointY="6.625" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_usuario" Width="1.5" PointX="3" PointY="3.625" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_USUARIO_TB_CLIENTE1" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_CURRICULUM_TB_USUARIO1" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" />
+        <AssociationConnector Association="tb_portalhlpModel.tb_segmento_modulo" />
+        <EntityTypeShape EntityType="tb_portalhlpModel.tb_noticias" Width="1.5" PointX="5.25" PointY="6.75" />
+        <AssociationConnector Association="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

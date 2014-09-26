@@ -1,0 +1,216 @@
+﻿@model HLP.Portal.MVC.Models.Adm.HomeModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <fieldset>
+                    <legend>
+                        De um 'UP' em seu negócio, tecnologia nunca é pouco para sua empresa.
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="carousel slide" id="carousel-933315">
+                            <ol class="carousel-indicators">
+                                @for (int count = 0; count < Model.CarrosselNoticias.Count(); count++)
+                                {
+                                    if (count == 0)
+                                    {
+                                <li class="active" data-slide-to="@count" data-target="#carousel-261568" />
+                                    }
+                                    else
+                                    {
+                                <li data-slide-to="@count" data-target="#carousel-261568" />
+                                    }
+                                }
+                            </ol>
+                            <div class="carousel-inner">
+
+                                @for (int i = 0; i < Model.CarrosselNoticias.Count(); i++)
+                                {
+                                    if (i == 0)
+                                    {
+                            <div class="item active">
+                                <img alt="" src="@Model.CarrosselNoticias[i].Imagens.Where(c=> c.stPrincipal).FirstOrDefault().xUrlImg" />
+                                <div class="carousel-caption">
+                                    <h4>
+                                        @Model.CarrosselNoticias[i].xTitulo
+                                    </h4>
+
+                                    <p>
+                                        @Model.CarrosselNoticias[i].xNoticia
+                                    </p>
+                                </div>
+                            </div>
+                                    }
+                                    else
+                                    {
+                            <div class="item">
+                                <img alt="" src="@Model.CarrosselNoticias[i].Imagens.Where(c=> c.stPrincipal).FirstOrDefault().xUrlImg" />
+                                <div class="carousel-caption">
+                                    <h4>
+                                        @Model.CarrosselNoticias[i].xTitulo
+                                    </h4>
+
+                                    <p>
+                                        @Model.CarrosselNoticias[i].xNoticia
+                                    </p>
+                                </div>
+                            </div>
+                                    }
+                                }
+                            </div> <a class="left carousel-control" href="#carousel-933315" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-933315" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+<br />
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <fieldset>
+                    <legend>
+                        <em style="padding-left:15px">Segmentos</em>
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <img alt="300x200" src="http://lorempixel.com/600/200/people" />
+                            <div class="caption">
+                                <h5>
+                                    Thumbnail label
+                                </h5>
+
+                                <p>
+                                    <font size="1" face="Verdana">
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <section>
+                @Html.Partial("_PartialNoticiasDestaque")
+            </section>
+        </div>
+        <div class="col-md-4 column">
+            <section>
+                @Html.Partial("_PartialEndereco")
+            </section>
+        </div>
+        <div class="col-md-4 column">
+        </div>
+    </div>
+</div>
+
