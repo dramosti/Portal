@@ -1,0 +1,44 @@
+﻿@using HLP.Portal.MVC.Models.Adm
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <fieldset>
+                    <legend>
+                        <em style="padding-left:15px">Notícias</em>
+                    </legend>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <div class="row">
+                    @if (@Session["home"] != null)
+                    {
+                        foreach (var noticia in (Session["home"] as HomeModel).DestaqueNoticias)
+                        {
+                            <div class="container">
+                                <div class="row clearfix">
+                                    <div class="col-md-4 column">
+                                        <blockquote>
+                                            <h6>
+                                                <a href="~/Noticia/Detalhe/@noticia.idNoticias">
+                                                    @noticia.xTitulo
+                                                </a>
+                                            </h6>
+                                            <small>
+                                                @noticia.dtNoticia.ToLongDateString()
+                                            </small>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
