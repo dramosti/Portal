@@ -29,6 +29,7 @@ namespace HLP.Portal.MVC.Controllers
             try
             {
                 var getUser = this.SessionUserModel;
+                base.SessionHomeModel = new HomeModel();
                 base.SessionHomeModel.CarrosselNoticias = noticiaRep.GetNoticiaCarrossel();
                 base.SessionHomeModel.DestaqueNoticias = noticiaRep.GetNoticiaDestaque();
             }

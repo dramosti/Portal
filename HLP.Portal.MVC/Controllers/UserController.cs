@@ -58,13 +58,13 @@ namespace HLP.Portal.MVC.Controllers
                 if (repository.IsExist(user.xUserName))
                 {
                     var userVerify = repository.GetUser(user.xUserName);
-                    if (userVerify.xSenha == "")
+                    if (userVerify.xSenha == null)
                     {
                         user.idUsuario = userVerify.idUsuario;
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Usuário ja existe.");
+                        this.aviso = "Usuário ja existente.";
                         return View(user);
                     }
                 }                
@@ -77,7 +77,7 @@ namespace HLP.Portal.MVC.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Data is not correct");
+                this.aviso = "Dados estão incorretos.";
             }
             return View(user);
         }
