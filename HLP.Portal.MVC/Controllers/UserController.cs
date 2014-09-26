@@ -17,7 +17,7 @@ namespace HLP.Portal.MVC.Controllers
 
 
         public ActionResult LogIn()
-        {            
+        {
             return View();
         }
 
@@ -55,6 +55,20 @@ namespace HLP.Portal.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (repository.IsExist(user.xUserName))
+                {
+                    var userVerify = repository.GetUser(user.xUserName);
+                    if (userVerify.xSenha == "")
+                    {
+                        user.idUsuario = userVerify.idUsuario;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Usuário ja existe.");
+                        return View(user);
+                    }
+                }                
+
                 if (repository.Save(user: user))
                 {
                     this.SessionUserModel = repository.GetUser(user.xUserName);
@@ -74,7 +88,6 @@ namespace HLP.Portal.MVC.Controllers
             this.SessionUserModel = null;
             return RedirectToAction(actionName: "Home", controllerName: "Home");
         }
-
 
         public ActionResult Recovery()
         {
@@ -163,7 +176,7 @@ namespace HLP.Portal.MVC.Controllers
                         repository.Save(user);
                         this.SessionUserModel = repository.GetUser(user.xUserName);
                         ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(result.Provider).DisplayName;
-                        ViewBag.ReturnUrl = returnUrl;                       
+                        ViewBag.ReturnUrl = returnUrl;
                     }
                 }
             }
