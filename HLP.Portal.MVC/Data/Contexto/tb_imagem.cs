@@ -20,7 +20,5 @@ namespace HLP.Portal.MVC.Data.Contexto
         public bool stPrincipal { get; set; }
         public Nullable<int> idNoticias { get; set; }
         public Nullable<int> idSegmento { get; set; }
-    
-        public virtual tb_segmento tb_segmento { get; set; }
     }
 }

@@ -48,22 +48,6 @@
           <Property Name="idNoticias" Type="int" />
           <Property Name="idSegmento" Type="int" />
         </EntityType>
-        <EntityType Name="tb_modulo">
-          <Key>
-            <PropertyRef Name="idModulo" />
-          </Key>
-          <Property Name="idModulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xTitulo" Type="varchar" MaxLength="100" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tb_modulo_item">
-          <Key>
-            <PropertyRef Name="idModuloItem" />
-            <PropertyRef Name="idModulo" />
-          </Key>
-          <Property Name="idModuloItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xDescricao" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="idModulo" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="tb_noticias">
           <Key>
             <PropertyRef Name="idNoticias" />
@@ -71,32 +55,21 @@
           </Key>
           <Property Name="idNoticias" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="xTitulo" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="dtNoticia" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="xResumida" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="xNoticia" Type="varchar" MaxLength="5000" Nullable="false" />
-          <Property Name="xResumida" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="dtNoticia" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="stCarrocel" Type="bit" Nullable="false" />
           <Property Name="stDestaque" Type="bit" Nullable="false" />
           <Property Name="idUsuario" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="tb_segmento">
+        <EntityType Name="tb_providers">
           <Key>
-            <PropertyRef Name="idSegmento" />
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
           </Key>
-          <Property Name="idSegmento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xTituloHome" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="xConteudoHome" Type="varchar" MaxLength="300" Nullable="false" />
-          <Property Name="xTituloCompleto" Type="varchar" MaxLength="100" />
-          <Property Name="xConteudoCompleto" Type="varchar" MaxLength="5000" />
-          <Property Name="xTituloDiferencial" Type="varchar" MaxLength="100" />
-          <Property Name="xConteudoDiferencial" Type="varchar" MaxLength="5000" />
-        </EntityType>
-        <EntityType Name="tb_segmento_modulo">
-          <Key>
-            <PropertyRef Name="idSegmento" />
-            <PropertyRef Name="idModulo" />
-          </Key>
-          <Property Name="idSegmento" Type="int" Nullable="false" />
-          <Property Name="idModulo" Type="int" Nullable="false" />
+          <Property Name="Provider" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tb_solicitecontato">
           <Key>
@@ -116,12 +89,12 @@
             <PropertyRef Name="idUsuario" />
           </Key>
           <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="xNome" Type="varchar" MaxLength="100" />
-          <Property Name="xEmail" Type="varchar" MaxLength="45" />
+          <Property Name="xFullName" Type="varchar" MaxLength="100" />
+          <Property Name="xUserName" Type="varchar" MaxLength="45" />
           <Property Name="xSenha" Type="varchar" MaxLength="500" />
           <Property Name="xSenhaSalt" Type="varchar" MaxLength="100" />
-          <Property Name="idFaceBook" Type="varchar" MaxLength="1000" />
           <Property Name="idCliente" Type="int" />
+          <Property Name="dtCriado" Type="datetime" Precision="0" />
         </EntityType>
         <Association Name="fk_TB_CURRICULUM_TB_USUARIO1">
           <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
@@ -138,30 +111,6 @@
         <!--Errors Found During Generation:
 warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
         <Association Name="fk_TB_IMAGEM_TB_NOTICIAS1" />-->
-        <Association Name="fk_TB_IMAGEM_TB_SEGMENTO1">
-          <End Role="tb_segmento" Type="Self.tb_segmento" Multiplicity="0..1" />
-          <End Role="tb_imagem" Type="Self.tb_imagem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_segmento">
-              <PropertyRef Name="idSegmento" />
-            </Principal>
-            <Dependent Role="tb_imagem">
-              <PropertyRef Name="idSegmento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TB_MODULO_ITEM_TB_MODULO1">
-          <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="1" />
-          <End Role="tb_modulo_item" Type="Self.tb_modulo_item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_modulo">
-              <PropertyRef Name="idModulo" />
-            </Principal>
-            <Dependent Role="tb_modulo_item">
-              <PropertyRef Name="idModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
           <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
           <End Role="tb_noticias" Type="Self.tb_noticias" Multiplicity="*" />
@@ -174,27 +123,15 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1">
-          <End Role="tb_modulo" Type="Self.tb_modulo" Multiplicity="1" />
-          <End Role="tb_segmento_modulo" Type="Self.tb_segmento_modulo" Multiplicity="*" />
+        <Association Name="fk_tb_providers_TB_USUARIO1">
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="1" />
+          <End Role="tb_providers" Type="Self.tb_providers" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="tb_modulo">
-              <PropertyRef Name="idModulo" />
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
             </Principal>
-            <Dependent Role="tb_segmento_modulo">
-              <PropertyRef Name="idModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1">
-          <End Role="tb_segmento" Type="Self.tb_segmento" Multiplicity="1" />
-          <End Role="tb_segmento_modulo" Type="Self.tb_segmento_modulo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_segmento">
-              <PropertyRef Name="idSegmento" />
-            </Principal>
-            <Dependent Role="tb_segmento_modulo">
-              <PropertyRef Name="idSegmento" />
+            <Dependent Role="tb_providers">
+              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -214,36 +151,21 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySet Name="tb_cliente" EntityType="Self.tb_cliente" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_curriculum" EntityType="Self.tb_curriculum" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_imagem" EntityType="Self.tb_imagem" Schema="tb_portalhlp" store:Type="Tables" />
-          <EntitySet Name="tb_modulo" EntityType="Self.tb_modulo" Schema="tb_portalhlp" store:Type="Tables" />
-          <EntitySet Name="tb_modulo_item" EntityType="Self.tb_modulo_item" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_noticias" EntityType="Self.tb_noticias" Schema="tb_portalhlp" store:Type="Tables" />
-          <EntitySet Name="tb_segmento" EntityType="Self.tb_segmento" Schema="tb_portalhlp" store:Type="Tables" />
-          <EntitySet Name="tb_segmento_modulo" EntityType="Self.tb_segmento_modulo" Schema="tb_portalhlp" store:Type="Tables" />
+          <EntitySet Name="tb_providers" EntityType="Self.tb_providers" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_solicitecontato" EntityType="Self.tb_solicitecontato" Schema="tb_portalhlp" store:Type="Tables" />
           <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="tb_portalhlp" store:Type="Tables" />
           <AssociationSet Name="fk_TB_CURRICULUM_TB_USUARIO1" Association="Self.fk_TB_CURRICULUM_TB_USUARIO1">
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_curriculum" EntitySet="tb_curriculum" />
           </AssociationSet>
-          <AssociationSet Name="fk_TB_IMAGEM_TB_SEGMENTO1" Association="Self.fk_TB_IMAGEM_TB_SEGMENTO1">
-            <End Role="tb_segmento" EntitySet="tb_segmento" />
-            <End Role="tb_imagem" EntitySet="tb_imagem" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TB_MODULO_ITEM_TB_MODULO1" Association="Self.fk_TB_MODULO_ITEM_TB_MODULO1">
-            <End Role="tb_modulo" EntitySet="tb_modulo" />
-            <End Role="tb_modulo_item" EntitySet="tb_modulo_item" />
-          </AssociationSet>
           <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="Self.fk_TB_NOTICIAS_TB_USUARIO">
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_noticias" EntitySet="tb_noticias" />
           </AssociationSet>
-          <AssociationSet Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1" Association="Self.fk_TB_SEGMENTO_has_TB_MODULO_TB_MODULO1">
-            <End Role="tb_modulo" EntitySet="tb_modulo" />
-            <End Role="tb_segmento_modulo" EntitySet="tb_segmento_modulo" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1" Association="Self.fk_TB_SEGMENTO_has_TB_MODULO_TB_SEGMENTO1">
-            <End Role="tb_segmento" EntitySet="tb_segmento" />
-            <End Role="tb_segmento_modulo" EntitySet="tb_segmento_modulo" />
+          <AssociationSet Name="fk_tb_providers_TB_USUARIO1" Association="Self.fk_tb_providers_TB_USUARIO1">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_providers" EntitySet="tb_providers" />
           </AssociationSet>
           <AssociationSet Name="fk_TB_USUARIO_TB_CLIENTE1" Association="Self.fk_TB_USUARIO_TB_CLIENTE1">
             <End Role="tb_cliente" EntitySet="tb_cliente" />
@@ -258,9 +180,8 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySet Name="tb_cliente" EntityType="tb_portalhlpModel.tb_cliente" />
           <EntitySet Name="tb_curriculum" EntityType="tb_portalhlpModel.tb_curriculum" />
           <EntitySet Name="tb_imagem" EntityType="tb_portalhlpModel.tb_imagem" />
-          <EntitySet Name="tb_modulo" EntityType="tb_portalhlpModel.tb_modulo" />
-          <EntitySet Name="tb_modulo_item" EntityType="tb_portalhlpModel.tb_modulo_item" />
-          <EntitySet Name="tb_segmento" EntityType="tb_portalhlpModel.tb_segmento" />
+          <EntitySet Name="tb_noticias" EntityType="tb_portalhlpModel.tb_noticias" />
+          <EntitySet Name="tb_providers" EntityType="tb_portalhlpModel.tb_providers" />
           <EntitySet Name="tb_solicitecontato" EntityType="tb_portalhlpModel.tb_solicitecontato" />
           <EntitySet Name="tb_usuario" EntityType="tb_portalhlpModel.tb_usuario" />
           <AssociationSet Name="fk_TB_USUARIO_TB_CLIENTE1" Association="tb_portalhlpModel.fk_TB_USUARIO_TB_CLIENTE1">
@@ -271,22 +192,13 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_curriculum" EntitySet="tb_curriculum" />
           </AssociationSet>
-          <AssociationSet Name="fk_TB_IMAGEM_TB_SEGMENTO1" Association="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1">
-            <End Role="tb_segmento" EntitySet="tb_segmento" />
-            <End Role="tb_imagem" EntitySet="tb_imagem" />
-          </AssociationSet>
-          <AssociationSet Name="fk_TB_MODULO_ITEM_TB_MODULO1" Association="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1">
-            <End Role="tb_modulo" EntitySet="tb_modulo" />
-            <End Role="tb_modulo_item" EntitySet="tb_modulo_item" />
-          </AssociationSet>
-          <AssociationSet Name="tb_segmento_modulo" Association="tb_portalhlpModel.tb_segmento_modulo">
-            <End Role="tb_modulo" EntitySet="tb_modulo" />
-            <End Role="tb_segmento" EntitySet="tb_segmento" />
-          </AssociationSet>
-          <EntitySet Name="tb_noticias" EntityType="tb_portalhlpModel.tb_noticias" />
           <AssociationSet Name="fk_TB_NOTICIAS_TB_USUARIO" Association="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO">
             <End Role="tb_usuario" EntitySet="tb_usuario" />
             <End Role="tb_noticias" EntitySet="tb_noticias" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tb_providers_TB_USUARIO1" Association="tb_portalhlpModel.fk_tb_providers_TB_USUARIO1">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_providers" EntitySet="tb_providers" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="tb_cliente">
@@ -333,40 +245,31 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <Property Name="stPrincipal" Type="Boolean" Nullable="false" />
           <Property Name="idNoticias" Type="Int32" />
           <Property Name="idSegmento" Type="Int32" />
-          <NavigationProperty Name="tb_segmento" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_imagem" ToRole="tb_segmento" />
         </EntityType>
-        <EntityType Name="tb_modulo">
+        <EntityType Name="tb_noticias">
           <Key>
-            <PropertyRef Name="idModulo" />
+            <PropertyRef Name="idNoticias" />
+            <PropertyRef Name="idUsuario" />
           </Key>
-          <Property Name="idModulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tb_modulo_item" Relationship="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" FromRole="tb_modulo" ToRole="tb_modulo_item" />
-          <NavigationProperty Name="tb_segmento" Relationship="tb_portalhlpModel.tb_segmento_modulo" FromRole="tb_modulo" ToRole="tb_segmento" />
+          <Property Name="idNoticias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="xResumida" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="xNoticia" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="dtNoticia" Type="DateTime" Nullable="false" />
+          <Property Name="stCarrocel" Type="Boolean" Nullable="false" />
+          <Property Name="stDestaque" Type="Boolean" Nullable="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" FromRole="tb_noticias" ToRole="tb_usuario" />
         </EntityType>
-        <EntityType Name="tb_modulo_item">
+        <EntityType Name="tb_providers">
           <Key>
-            <PropertyRef Name="idModuloItem" />
-            <PropertyRef Name="idModulo" />
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
           </Key>
-          <Property Name="idModuloItem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xDescricao" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="idModulo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.fk_TB_MODULO_ITEM_TB_MODULO1" FromRole="tb_modulo_item" ToRole="tb_modulo" />
-        </EntityType>
-        <EntityType Name="tb_segmento">
-          <Key>
-            <PropertyRef Name="idSegmento" />
-          </Key>
-          <Property Name="idSegmento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xTituloHome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="xConteudoHome" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="xTituloCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="xConteudoCompleto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Name="xTituloDiferencial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="xConteudoDiferencial" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tb_imagem" Relationship="tb_portalhlpModel.fk_TB_IMAGEM_TB_SEGMENTO1" FromRole="tb_segmento" ToRole="tb_imagem" />
-          <NavigationProperty Name="tb_modulo" Relationship="tb_portalhlpModel.tb_segmento_modulo" FromRole="tb_segmento" ToRole="tb_modulo" />
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="tb_portalhlpModel.fk_tb_providers_TB_USUARIO1" FromRole="tb_providers" ToRole="tb_usuario" />
         </EntityType>
         <EntityType Name="tb_solicitecontato">
           <Key>
@@ -386,15 +289,16 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
             <PropertyRef Name="idUsuario" />
           </Key>
           <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xNome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="xEmail" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="xFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="xUserName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="xSenha" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="xSenhaSalt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="idFaceBook" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="idCliente" Type="Int32" />
+          <Property Name="dtCriado" Type="DateTime" />
           <NavigationProperty Name="tb_cliente" Relationship="tb_portalhlpModel.fk_TB_USUARIO_TB_CLIENTE1" FromRole="tb_usuario" ToRole="tb_cliente" />
           <NavigationProperty Name="tb_curriculum" Relationship="tb_portalhlpModel.fk_TB_CURRICULUM_TB_USUARIO1" FromRole="tb_usuario" ToRole="tb_curriculum" />
           <NavigationProperty Name="tb_noticias" Relationship="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" FromRole="tb_usuario" ToRole="tb_noticias" />
+          <NavigationProperty Name="tb_providers" Relationship="tb_portalhlpModel.fk_tb_providers_TB_USUARIO1" FromRole="tb_usuario" ToRole="tb_providers" />
         </EntityType>
         <Association Name="fk_TB_USUARIO_TB_CLIENTE1">
           <End Type="tb_portalhlpModel.tb_cliente" Role="tb_cliente" Multiplicity="0..1" />
@@ -420,49 +324,6 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_TB_IMAGEM_TB_SEGMENTO1">
-          <End Type="tb_portalhlpModel.tb_segmento" Role="tb_segmento" Multiplicity="0..1" />
-          <End Type="tb_portalhlpModel.tb_imagem" Role="tb_imagem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_segmento">
-              <PropertyRef Name="idSegmento" />
-            </Principal>
-            <Dependent Role="tb_imagem">
-              <PropertyRef Name="idSegmento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="fk_TB_MODULO_ITEM_TB_MODULO1">
-          <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="1" />
-          <End Type="tb_portalhlpModel.tb_modulo_item" Role="tb_modulo_item" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tb_modulo">
-              <PropertyRef Name="idModulo" />
-            </Principal>
-            <Dependent Role="tb_modulo_item">
-              <PropertyRef Name="idModulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="tb_segmento_modulo">
-          <End Type="tb_portalhlpModel.tb_modulo" Role="tb_modulo" Multiplicity="*" />
-          <End Type="tb_portalhlpModel.tb_segmento" Role="tb_segmento" Multiplicity="*" />
-        </Association>
-        <EntityType Name="tb_noticias">
-          <Key>
-            <PropertyRef Name="idNoticias" />
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idNoticias" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="xTitulo" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="dtNoticia" Type="DateTime" Nullable="false" />
-          <Property Name="xNoticia" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Name="xResumida" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="stCarrocel" Type="Boolean" Nullable="false" />
-          <Property Name="stDestaque" Type="Boolean" Nullable="false" />
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tb_usuario" Relationship="tb_portalhlpModel.fk_TB_NOTICIAS_TB_USUARIO" FromRole="tb_noticias" ToRole="tb_usuario" />
-        </EntityType>
         <Association Name="fk_TB_NOTICIAS_TB_USUARIO">
           <End Type="tb_portalhlpModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
           <End Type="tb_portalhlpModel.tb_noticias" Role="tb_noticias" Multiplicity="*" />
@@ -471,6 +332,18 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
               <PropertyRef Name="idUsuario" />
             </Principal>
             <Dependent Role="tb_noticias">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_tb_providers_TB_USUARIO1">
+          <End Type="tb_portalhlpModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
+          <End Type="tb_portalhlpModel.tb_providers" Role="tb_providers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="tb_providers">
               <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
@@ -527,33 +400,26 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_modulo">
-            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo">
-              <MappingFragment StoreEntitySet="tb_modulo">
+          <EntitySetMapping Name="tb_noticias">
+            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
+              <MappingFragment StoreEntitySet="tb_noticias">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
+                <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
+                <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
+                <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
+                <ScalarProperty Name="xResumida" ColumnName="xResumida" />
                 <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+                <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_modulo_item">
-            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo_item">
-              <MappingFragment StoreEntitySet="tb_modulo_item">
-                <ScalarProperty Name="idModulo" ColumnName="idModulo" />
-                <ScalarProperty Name="xDescricao" ColumnName="xDescricao" />
-                <ScalarProperty Name="idModuloItem" ColumnName="idModuloItem" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_segmento">
-            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_segmento">
-              <MappingFragment StoreEntitySet="tb_segmento">
-                <ScalarProperty Name="xConteudoDiferencial" ColumnName="xConteudoDiferencial" />
-                <ScalarProperty Name="xTituloDiferencial" ColumnName="xTituloDiferencial" />
-                <ScalarProperty Name="xConteudoCompleto" ColumnName="xConteudoCompleto" />
-                <ScalarProperty Name="xTituloCompleto" ColumnName="xTituloCompleto" />
-                <ScalarProperty Name="xConteudoHome" ColumnName="xConteudoHome" />
-                <ScalarProperty Name="xTituloHome" ColumnName="xTituloHome" />
-                <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
+          <EntitySetMapping Name="tb_providers">
+            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_providers">
+              <MappingFragment StoreEntitySet="tb_providers">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -574,35 +440,13 @@ warning 6035: The relationship 'fk_TB_IMAGEM_TB_NOTICIAS1' has columns that are 
           <EntitySetMapping Name="tb_usuario">
             <EntityTypeMapping TypeName="tb_portalhlpModel.tb_usuario">
               <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="dtCriado" ColumnName="dtCriado" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-                <ScalarProperty Name="idFaceBook" ColumnName="idFaceBook" />
                 <ScalarProperty Name="xSenhaSalt" ColumnName="xSenhaSalt" />
                 <ScalarProperty Name="xSenha" ColumnName="xSenha" />
-                <ScalarProperty Name="xEmail" ColumnName="xEmail" />
-                <ScalarProperty Name="xNome" ColumnName="xNome" />
+                <ScalarProperty Name="xUserName" ColumnName="xUserName" />
+                <ScalarProperty Name="xFullName" ColumnName="xFullName" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="tb_segmento_modulo" TypeName="tb_portalhlpModel.tb_segmento_modulo" StoreEntitySet="tb_segmento_modulo">
-            <EndProperty Name="tb_segmento">
-              <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
-            </EndProperty>
-            <EndProperty Name="tb_modulo">
-              <ScalarProperty Name="idModulo" ColumnName="idModulo" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="tb_noticias">
-            <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
-              <MappingFragment StoreEntitySet="tb_noticias">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
-                <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
-                <ScalarProperty Name="xResumida" ColumnName="xResumida" />
-                <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
-                <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
-                <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-                <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

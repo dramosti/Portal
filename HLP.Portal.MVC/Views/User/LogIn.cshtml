@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Portal.cshtml";
 }
 <fieldset>
-
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-6 column">
@@ -13,17 +12,13 @@
                         Log in
                     </legend>
                 </fieldset>
-            </div>
-        </div>
-        <div class="row clearfix">
-            <div class="col-md-6 column">
                 @using (Html.BeginForm())
                 {
                     @Html.ValidationSummary(true, "Login Failed, check details");
                     <div>
-                        @Html.LabelFor(c => c.xEmail)
-                        @Html.TextBoxFor(x => x.xEmail, new { @class = "form-control", autofocus = "autofocus", placeholder = "seuemail@exemplo.com" })
-                        @Html.ValidationMessageFor(x => x.xEmail)
+                        @Html.LabelFor(c => c.xUserName)
+                        @Html.TextBoxFor(x => x.xUserName, new { @class = "form-control", autofocus = "autofocus", placeholder = "seuemail@exemplo.com" })
+                        @Html.ValidationMessageFor(x => x.xUserName)
                     </div>
                     <div>
                         @Html.LabelFor(c => c.xSenha)
@@ -34,6 +29,7 @@
                     <br />
                     <div>
                         <input type="submit" id="Login" value="Log in" class="btn btn-primary" />
+                        <a href="Register" class="btn btn-default">Registre-se</a>
                     </div>
 
                     <div class="control-group">
@@ -46,9 +42,13 @@
                         </div>
                     </div>
                 }
+
+            </div>
+            <div class="col-md-4 column">
+                <section class="social" id="socialLoginForm">
+                    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
             </div>
         </div>
     </div>
-
-
 </fieldset>

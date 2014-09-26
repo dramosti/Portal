@@ -43,6 +43,24 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.4.12182\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.4.12182\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -54,6 +72,17 @@
       <HintPath>G:\CSharp\Desenvolvimento\Projetos\HLP.DLLS\HLP.EMAIL.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Web.6.9.3\lib\net45\MySql.Web.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -140,8 +169,17 @@
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Areas\Solucoes\Controllers\MagnificusEvolutionController.cs" />
     <Compile Include="Areas\Solucoes\SolucoesAreaRegistration.cs" />
@@ -178,16 +216,10 @@
     <Compile Include="Data\Contexto\tb_imagem.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Contexto\tb_modulo.cs">
-      <DependentUpon>PORTAL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Contexto\tb_modulo_item.cs">
-      <DependentUpon>PORTAL.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\Contexto\tb_noticias.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Contexto\tb_segmento.cs">
+    <Compile Include="Data\Contexto\tb_providers.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Contexto\tb_solicitecontato.cs">
@@ -211,7 +243,8 @@
     <Compile Include="Models\Adm\ImagemModel.cs" />
     <Compile Include="Models\Adm\NoticiaModel.cs" />
     <Compile Include="Models\Adm\SoliciteContatoModel.cs" />
-    <Compile Include="Models\BaseController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Models\Registration\ProvidersModel.cs" />
     <Compile Include="Models\Registration\UserModel.cs" />
     <Compile Include="Models\Sistema\ModuloModel.cs" />
     <Compile Include="Models\Sistema\SegmentoModel.cs" />
@@ -333,6 +366,10 @@
     <Content Include="Views\Sistema\Solucoes.cshtml" />
     <Content Include="Views\Shared\_PartialEndereco.cshtml" />
     <Content Include="Views\Cliente\NossosClientes.cshtml" />
+    <Content Include="Views\Shared\_PartialLogin.cshtml" />
+    <Content Include="Views\User\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\User\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\User\ExternalLoginConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

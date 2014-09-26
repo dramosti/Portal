@@ -238,3 +238,50 @@ D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.dll
 D:\GitHub\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.dll
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\HLP.EMAIL.pdb
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.AspNet.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.Core.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Microsoft.Web.WebPages.OAuth.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\WebMatrix.Data.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\WebMatrix.WebData.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Org.Mentalis.Security.Cryptography.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Mono.Math.dll
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.AspNet.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.Core.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Microsoft.Web.WebPages.OAuth.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\WebMatrix.Data.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\WebMatrix.WebData.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Org.Mentalis.Security.Cryptography.xml
+C:\Users\diego_000\Google Drive\Documents\Desenvolvimento\Projetos\Portal\Portal\HLP.Portal.MVC\bin\Mono.Math.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.AspNet.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.Core.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.Consumer.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\WebMatrix.Data.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\WebMatrix.WebData.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Org.Mentalis.Security.Cryptography.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Mono.Math.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.AspNet.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.Core.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OAuth.Consumer.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\WebMatrix.Data.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\WebMatrix.WebData.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Org.Mentalis.Security.Cryptography.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Mono.Math.xml
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\MySql.Data.dll
+D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\MySql.Web.dll

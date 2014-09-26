@@ -10,69 +10,85 @@
     @Scripts.Render("~/bundles/scripts/desktop")
     @Styles.Render("~/bundles/css/desktop")
     <script>
-    $(document).ready(function () {
-        $(".nav li").on("click", function ()
-        {
-            $(".nav li").removeClass("active");
-            $(this).addClass("active");
-        });
-    })
+        $(document).ready(function () {
+            $(".nav li").on("click", function () {
+                $(".nav li").removeClass("active");
+                $(this).addClass("active");
+            });
+        })
 
-</script>
+    </script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="#">HLP</a>
-            </div>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-4 column">
+                </div>
+                <div class="col-md-4 column">
+                </div>
+                <div class="col-md-4 column">
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="~/Sistema/Solucoes">Soluções</a>
-                    </li>
-                    <li>
-                        <a href="~/Noticia/Noticias">Notícias</a>
-                    </li>
-                    <li>
-                        <a href="#">Clientes</a>
-                    </li>
-                    <li>
-                        <a href="#">Empresa</a>
-                    </li>
-                    <li>
-                        <a href="#">Contato</a>
-                    </li>
-                    <li>
-                        <a href="~/SoliciteContato/Solicitar">Solicite contato</a>
-                    </li>
-                    <li>
-                        <a href="~/TrabalheConosco/Formulario">Trabalhe conosco</a>
-                    </li>
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li>
-                            <strong>@Html.Encode(User.Identity.Name)</strong>
-                            <a href="~/User/Logout">Log Out</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a href="~/User/Register">Registre-se</a>
-                        </li>
-                        <li>
-                            <a href="~/User/Login">Log In</a>
-                        </li>
-                    }
-                </ul>
+                </div>
             </div>
-        </nav>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <section id="login">
+                        @if (Request.IsAuthenticated)
+                        {
+                            string xFullName = (Session["user"] as HLP.Portal.MVC.Models.Registration.UserModel).xFullName;
+
+                            <text>
+                                Olá, @xFullName  @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" }), <a href="~/User/Logout">Sair</a>
+                            </text>
+                        }
+                    </section>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="~/Home/Home">Home</a>
+                                </li>
+                                <li>
+                                    <a href="~/Sistema/Solucoes">Soluções</a>
+                                </li>
+                                <li>
+                                    <a href="~/Noticia/Noticias">Notícias</a>
+                                </li>
+                                <li>
+                                    <a href="#">Clientes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Empresa</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contato</a>
+                                </li>
+                                <li>
+                                    <a href="~/SoliciteContato/Solicitar">Solicite contato</a>
+                                </li>
+                                <li>
+                                    <a href="~/TrabalheConosco/Formulario">Trabalhe conosco</a>
+                                </li>
+                                @if (Request.IsAuthenticated)
+                                {
+                                    <li>
+                                        <a href="~/User/Logout">Sair</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="~/User/Login">Entrar</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
     </header>
     <section class="container">
         <div>
@@ -84,9 +100,11 @@
             @RenderBody()
         </div>
     </section>
+    <br />
+    <br />
     <footer>
         @*navbar-fixed-bottom*@
-        <nav class="navbar navbar-default navbar-inverse " role="navigation">
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom" role="navigation">
             <div class="container">
                 <p style="color:white">
                     &copy; 2014 - <strong style="color:white">HLP estratégia em sistemas.</strong>

@@ -24,6 +24,7 @@ namespace HLP.Portal.MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AuthConfig.RegisterAuth();
         }
 
         protected void Application_Error(object sender, EventArgs e)
