@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "VendasVarejo";
+    Layout = "~/Views/Shared/_Portal.cshtml";
+}
+
+@section ESTILOS{
+}
+
+@section SCRIPTS{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#acc1").click(function () {
+
+                $("#accordion1").collapse('toggle');
+
+                if (document.getElementById('spanBtnAccordion').innerHTML == "+")
+                    document.getElementById('spanBtnAccordion').innerHTML = '-'
+                else
+                    document.getElementById('spanBtnAccordion').innerHTML = '+'
+            });
+
+        });
+
+    </script>
+}
+
+<fieldset>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <div class="container-fluid">
+                <img src="http://www.hlp.com.br/imagens/Portal/Solucoes/Venda_Varejo.jpg" width="800" height="200" />
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8" style="margin-top: 35px">
+            <div>
+                Com o EvoluTion Gestão Comercial a organização conta com a agilidade na elaboração
+                e emissão de pedido de vendas para produtos oferecidos pela empresa.
+                Os pedidos de vendas são sempre efetuados dentro de padrões estabelecidos, 
+                reduzindo o tempo de elaboração da proposta e erros cometidos pelos usuários.
+
+
+                O ERP EvoluTIon permite agilidade no processo de coleta de informações (pedido, pesquisa, ações etc.),
+                rapidez na entrada de dados e na hora da venda, reduzindo o custo de atendimento.
+                Há a possibilidade de uma avaliação de crédito dos clientes com liberação do supervisor de vendas,
+                que garante toda a segurança e agilidade na
+                disponibilidade dos pedidos a serem faturados.
+
+
+                Com a abrangência das parametrizações para esta avaliação, é possível evitar vendas a prazo para clientes inadimplentes,
+                reduzindo o risco das operações comerciais. Com todo esse processo o ERP EvoluTIon reduzirá os custos de operação,
+                melhorando a margem da empresa e, por consequência, os resultados da empresa.
+
+                Um ponto favorável é o aumento do tempo disponível dos gestores para as atividades estratégicas como negociação com clientes,
+                políticas de crédito, relacionamento com instituições Financeiras.
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8" style="margin-top: 35px; margin-bottom: 50px;">
+            <button type="button" id="acc1" class="btnAccordion"><span id="spanBtnAccordion">+</span>Benefícios</button>
+
+            <!-- Collapsible Content -->
+
+            <div id="accordion1" class="divAccordion collapse">
+                <h5>Comercial</h5>
+                <ul>
+                    <li>Permite lançamento de orçamentos</li>
+                    <li>Permite selecionar cliente por nome ou nome Fantasia, CNPJ/CPF, bairro, município e telefones</li>
+                    <li>Ajustáveis conforme solicitação do cliente</li>
+                    <li>Permite visualizar cotações e pedidos efetuados e pendentes, separados por cliente</li>
+                    <li>Permite a transformação de um orçamento em pedido de vendas</li>
+                    <li>Gera relação dos pedidos em aberto</li>
+                    <li>Gera relatórios de comissões pelas vendas, parcelas de contas a receber, recebidas ou % de comissões</li>
+                    <li>Permite ao vendedor enviar a cotação ou pedido de venda por e-mail</li>
+                    <li>Permite gerar tabelas de promoções e ofertas</li>
+                    <li>O televendas tem uma lista de contatos diários</li>
+                    <li>O ERP permite que o televendas possa gerar um histórico de visitas efetuadas a cada cliente permitindo</li>
+                    <li>Assim que outro operador possa dar continuidade ao atendimento</li>
+                    <li>O televendas poderá reagendar visitas á clientes com parâmetro de dia e horário</li>
+                    <li>Gera acompanhamento de metas dos operadores</li>
+                    <li>Permite informar o cliente e listar tudo o que o mesmo já comprou ou informar o produto e listar  todos os clientes que compraram um determinado produto</li>
+                    <li>Permite efetuar proposta comercial</li>
+                    <li>Analise dos clientes que não estão comprando</li>
+                    <li>Permite gerar mala direta impressa ou via e-mail</li>
+                </ul>
+                <h5>Faturamento</h5>
+                <ul>
+                    <li>Emissão de nota fiscal eletrônica</li>
+                    <li>Emissão de nota fiscal eletrônica de serviços</li>
+                    <li>Emissão de arquivos magnéticos para o SPED Fiscal</li>
+                    <li>Emissão de arquivos magnéticos para o SPED Pis/Cofins</li>
+                    <li>Emissão de arquivos magnéticos para Nota Fiscal Paulista</li>
+                    <li>Montagem de qualquer tipo de nota-fiscal dentro das obrigações fiscais tais como nota de industrialização, remessa para conserto, retorno, venda, etc.</li>
+                    <li>Visualização da nota fiscal</li>
+                    <li>Gerador de arquivos de XML das notas fiscais eletrônicas </li>
+                    <li>Emissor de carta de correção eletrônico</li>
+                </ul>
+                <h5>Expedição</h5>
+                <ul>
+                    <li>Controle saídas dos pedidos através de check-out</li>
+                    <li>Geração relação dos itens não atendidos</li>
+                    <li>Gera romaneio de transporte</li>
+                    <li>Gera conhecimento de transporte</li>
+                    <li>Cadastro de veículos</li>
+                    <li>Cadastro de motorista</li>
+                    <li>Visualização da nota fiscal </li>
+                    <li>Gerador de arquivos de XML das notas fiscais eletrônicas </li>
+                    <li>Emissor de carta de correção eletrônico</li>
+                </ul>
+                <h5>Expedição</h5>
+                <ul>
+                    <li>Controle saídas dos pedidos através de check-out</li>
+                    <li>Geração relação dos itens não atendidos</li>
+                    <li>Gera romaneio de transporte</li>
+                    <li>Gera conhecimento de transporte</li>
+                    <li>Cadastro de veículos</li>
+                    <li>Cadastro de motorista</li>
+                    <li>Gera romaneio de carga</li>
+                    <li>Gera romaneio de entrega</li>
+                    <li>Controle de Entrega por motorista ou veículo</li>
+                </ul>
+                <h5>Ponto de Venda</h5>
+                <ul>
+                    <li>Emissão de cupom fiscal</li>
+                    <li>TEF (Transferência Eletrônica de Fundos)</li>
+                    <li>Emissão de orçamentos</li>
+                    <li>Vendas por kit de produtos</li>
+                    <li>Vendas por grade de produtos</li>
+                    <li>Consulta de estoque e preços de vendas</li>
+                    <li>Leitura de código de barras</li>
+                    <li>Impressão de etiquetas</li>
+                    <li>Controle de estoque</li>
+                    <li>Controle de estoque críticos</li>
+                    <li>Controle individuais dos pontos de vendas (PDV)</li>
+                </ul>
+                <h5>Pedidos de Vendas On-line (mobile)</h5>
+                <ul>
+                    <li>Emissão de Pedido e Orçamento de Vendas On-line</li>
+                    <li>Consulta da situação financeira do Cliente On-line</li>
+                    <li>Limite de Crédito e bloqueio em tempo real</li>
+                    <li>Eliminação de custos relativos a processos manuais e aumento da produtividade devido a automatização</li>
+                    <li>Aumento do fluxo interno de informação e integração entre os departamentos distintos nas empresas</li>
+                    <li>Diminuição da redundância das atividades já que os processos passam a ser automatizados</li>
+                    <li>Aumento da precisão na obtenção de informações, já que os dados passam a ser criteriosamente armazenados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</fieldset>

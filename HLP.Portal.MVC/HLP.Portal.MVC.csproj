@@ -222,6 +222,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Accordion.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -234,6 +235,9 @@
     <Content Include="Content\Images\img_facebook.png" />
     <Content Include="Content\Images\img_logohlp.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Solucoes.css" />
+    <Content Include="Content\themes\Accordion.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -338,6 +342,7 @@
     <Content Include="Views\Sistema\Solucoes.cshtml" />
     <Content Include="Views\Shared\_PartialEndereco.cshtml" />
     <Content Include="Views\Cliente\NossosClientes.cshtml" />
+    <Content Include="Views\Segmento\VendasVarejo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

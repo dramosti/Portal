@@ -1,0 +1,33 @@
+﻿.btnAccordion {
+    background: #ffffff;
+    border-width: 0px;
+    box-shadow: none;
+    font-size: 30px;
+    color: #1E90FF;
+    border-radius: 60px;
+}
+
+    .btnAccordion > span {
+        display: inline-block;
+        height: 40px;
+        width: 34px;
+        color: #1E90FF;
+        border-radius: 12px;
+        -moz-border-radius: 12px;
+        -webkit-border-radius: 12px;
+        border: 0px;
+        margin-right: 10px;
+    }
+
+    .btnAccordion:focus {
+        outline-offset: 0px;
+    }
+
+    .btnAccordion:active, :visited, :focus {
+        border: none;
+        outline: none;
+    }
+
+.divAccordion:focus {
+    outline-offset: 0px;
+}

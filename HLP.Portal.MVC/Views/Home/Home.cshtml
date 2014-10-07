@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Portal.cshtml";
 }
 
+@section SCRIPTS{
+}
+
 <fieldset>
     <div class="container">
         <div class="row clearfix">
@@ -91,41 +94,50 @@
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <div class="jcarousel-wrapper">
-            <div class="jcarousel">
-                <ul>
-                    <li><img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoVendas.png" alt="Image 1"></li>
-                    <li><img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoVarejo.png" alt="Image 2"></li>
-                    <li><img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoFinancas.png" alt="Image 3"></li>
-                    <li><img src="http://static.flickr.com/77/199481108_4359e6b971_s.jpg" alt="Image 4"></li>
-                    <li><img src="http://static.flickr.com/58/199481143_3c148d9dd3_s.jpg" alt="Image 5"></li>
-                    <li><img src="http://static.flickr.com/72/199481203_ad4cdcf109_s.jpg" alt="Image 6"></li>
-                </ul>
-            </div>
-
-            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-
-            <p class="jcarousel-pagination"></p>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="wrapper">
+                    <div class="jcarousel-wrapper">
+                        <div class="jcarousel">
+                            <ul>
+                                <li>
+                                    <a href="~/Segmento/VendasVarejo">
+                                        <img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoVendas.png" alt="Image 1">
+                                    </a>                                
+                                </li>
+                                <li><img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoVarejo.png" alt="Image 2"></li>
+                                <li><img src="http://www.hlp.com.br/imagens/Portal/Solucoes/segmentoFinancas.png" alt="Image 3"></li>
+                            </ul>
+                        </div>
+                    </div>                                     
+                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    <div class="jcarousel-pagination"></div>
+                </div>
+            </div>               
         </div>
     </div>
+
 </fieldset>
 
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-4 column">
-            <section>
-                @Html.Partial("_PartialNoticiasDestaque")
-            </section>
-        </div>
-        <div class="col-md-4 column">
-            <section>
-                @Html.Partial("_PartialEndereco")
-            </section>
-        </div>
-        <div class="col-md-4 column">
+<fieldset>
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <section>
+                    @Html.Partial("_PartialNoticiasDestaque")
+                </section>
+            </div>
+            <div class="col-md-4 column">
+                <section>
+                    @Html.Partial("_PartialEndereco")
+                </section>
+            </div>
+            <div class="col-md-4 column">
+            </div>
         </div>
     </div>
-</div>
+
+</fieldset>
 

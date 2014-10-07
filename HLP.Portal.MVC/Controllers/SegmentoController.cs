@@ -16,5 +16,10 @@ namespace HLP.Portal.MVC.Controllers
             return View();
         }
 
+        public ActionResult VendasVarejo()
+        {
+            return View();
+        }
+
     }
 }
