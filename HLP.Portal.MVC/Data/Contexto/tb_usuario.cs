@@ -18,18 +18,20 @@ namespace HLP.Portal.MVC.Data.Contexto
         {
             this.tb_curriculum = new HashSet<tb_curriculum>();
             this.tb_noticias = new HashSet<tb_noticias>();
+            this.tb_providers = new HashSet<tb_providers>();
         }
     
         public int idUsuario { get; set; }
-        public string xNome { get; set; }
-        public string xEmail { get; set; }
+        public string xFullName { get; set; }
+        public string xUserName { get; set; }
         public string xSenha { get; set; }
         public string xSenhaSalt { get; set; }
-        public string idFaceBook { get; set; }
         public Nullable<int> idCliente { get; set; }
+        public Nullable<System.DateTime> dtCriado { get; set; }
     
         public virtual tb_cliente tb_cliente { get; set; }
         public virtual ICollection<tb_curriculum> tb_curriculum { get; set; }
         public virtual ICollection<tb_noticias> tb_noticias { get; set; }
+        public virtual ICollection<tb_providers> tb_providers { get; set; }
     }
 }

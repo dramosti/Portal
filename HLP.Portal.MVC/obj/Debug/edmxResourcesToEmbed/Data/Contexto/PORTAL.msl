@@ -47,33 +47,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_modulo">
-      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo">
-        <MappingFragment StoreEntitySet="tb_modulo">
+    <EntitySetMapping Name="tb_noticias">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
+        <MappingFragment StoreEntitySet="tb_noticias">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
+          <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
+          <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
+          <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
+          <ScalarProperty Name="xResumida" ColumnName="xResumida" />
           <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
+          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_modulo_item">
-      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_modulo_item">
-        <MappingFragment StoreEntitySet="tb_modulo_item">
-          <ScalarProperty Name="idModulo" ColumnName="idModulo" />
-          <ScalarProperty Name="xDescricao" ColumnName="xDescricao" />
-          <ScalarProperty Name="idModuloItem" ColumnName="idModuloItem" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_segmento">
-      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_segmento">
-        <MappingFragment StoreEntitySet="tb_segmento">
-          <ScalarProperty Name="xConteudoDiferencial" ColumnName="xConteudoDiferencial" />
-          <ScalarProperty Name="xTituloDiferencial" ColumnName="xTituloDiferencial" />
-          <ScalarProperty Name="xConteudoCompleto" ColumnName="xConteudoCompleto" />
-          <ScalarProperty Name="xTituloCompleto" ColumnName="xTituloCompleto" />
-          <ScalarProperty Name="xConteudoHome" ColumnName="xConteudoHome" />
-          <ScalarProperty Name="xTituloHome" ColumnName="xTituloHome" />
-          <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
+    <EntitySetMapping Name="tb_providers">
+      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_providers">
+        <MappingFragment StoreEntitySet="tb_providers">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -94,35 +87,13 @@
     <EntitySetMapping Name="tb_usuario">
       <EntityTypeMapping TypeName="tb_portalhlpModel.tb_usuario">
         <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="dtCriado" ColumnName="dtCriado" />
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-          <ScalarProperty Name="idFaceBook" ColumnName="idFaceBook" />
           <ScalarProperty Name="xSenhaSalt" ColumnName="xSenhaSalt" />
           <ScalarProperty Name="xSenha" ColumnName="xSenha" />
-          <ScalarProperty Name="xEmail" ColumnName="xEmail" />
-          <ScalarProperty Name="xNome" ColumnName="xNome" />
+          <ScalarProperty Name="xUserName" ColumnName="xUserName" />
+          <ScalarProperty Name="xFullName" ColumnName="xFullName" />
           <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="tb_segmento_modulo" TypeName="tb_portalhlpModel.tb_segmento_modulo" StoreEntitySet="tb_segmento_modulo">
-      <EndProperty Name="tb_segmento">
-        <ScalarProperty Name="idSegmento" ColumnName="idSegmento" />
-      </EndProperty>
-      <EndProperty Name="tb_modulo">
-        <ScalarProperty Name="idModulo" ColumnName="idModulo" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <EntitySetMapping Name="tb_noticias">
-      <EntityTypeMapping TypeName="tb_portalhlpModel.tb_noticias">
-        <MappingFragment StoreEntitySet="tb_noticias">
-          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-          <ScalarProperty Name="stDestaque" ColumnName="stDestaque" />
-          <ScalarProperty Name="stCarrocel" ColumnName="stCarrocel" />
-          <ScalarProperty Name="xResumida" ColumnName="xResumida" />
-          <ScalarProperty Name="xNoticia" ColumnName="xNoticia" />
-          <ScalarProperty Name="dtNoticia" ColumnName="dtNoticia" />
-          <ScalarProperty Name="xTitulo" ColumnName="xTitulo" />
-          <ScalarProperty Name="idNoticias" ColumnName="idNoticias" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

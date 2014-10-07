@@ -23,14 +23,14 @@
                         @Html.HiddenFor(x => x.idUsuario)
                     </div>
                     <div>
-                        @Html.LabelFor(x => x.xNome)
-                        @Html.TextBoxFor(x => x.xNome, new { @class = "form-control", autofocus = "autofocus", placeholder = "Seu nome" })
-                        @Html.ValidationMessageFor(x => x.xNome)
+                        @Html.LabelFor(x => x.xFullName)
+                        @Html.TextBoxFor(x => x.xFullName, new { @class = "form-control", autofocus = "autofocus", placeholder = "Seu nome" })
+                        @Html.ValidationMessageFor(x => x.xFullName)
                     </div>
                     <div>
-                        @Html.LabelFor(x => x.xEmail)
-                        @Html.TextBoxFor(x => x.xEmail, new { @class = "form-control", autofocus = "autofocus", placeholder = "seunome@exemplo.com" })
-                        @Html.ValidationMessageFor(x => x.xEmail)
+                        @Html.LabelFor(x => x.xUserName)
+                        @Html.TextBoxFor(x => x.xUserName, new { @class = "form-control", autofocus = "autofocus", placeholder = "seunome@exemplo.com" })
+                        @Html.ValidationMessageFor(x => x.xUserName)
                     </div>
                     <div>
                         @Html.LabelFor(x => x.xSenha)

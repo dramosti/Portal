@@ -12,12 +12,12 @@ namespace HLP.Portal.MVC.Data.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_modulo_item
+    public partial class tb_providers
     {
-        public int idModuloItem { get; set; }
-        public string xDescricao { get; set; }
-        public int idModulo { get; set; }
+        public string Provider { get; set; }
+        public string ProviderUserId { get; set; }
+        public int idUsuario { get; set; }
     
-        public virtual tb_modulo tb_modulo { get; set; }
+        public virtual tb_usuario tb_usuario { get; set; }
     }
 }

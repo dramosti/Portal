@@ -12,17 +12,24 @@ namespace HLP.Portal.MVC.Models.Registration
     {
         public UserModel()
         {
+            this.providers = new List<ProvidersModel>();
         }
-        public int idUsuario { get; set; }
+        public int? idUsuario { get; set; }
 
+        /// <summary>
+        /// name
+        /// </summary>
         [Display(Name = "Nome completo: ")]
-        public string xNome { get; set; }
+        public string xFullName { get; set; }
 
+        /// <summary>
+        /// username
+        /// </summary>
         [Required]
         [EmailAddress]
         [StringLength(45)]
         [Display(Name = "Endereço de e-mail: ")]
-        public string xEmail { get; set; }
+        public string xUserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -30,11 +37,11 @@ namespace HLP.Portal.MVC.Models.Registration
         [Display(Name = "Senha: ")]
         public string xSenha { get; set; }
 
-        public string idFaceBook { get; set; }
-
         [Display(Name = "Lembre-me")]
         public bool bRemember { get; set; }
 
-        public ClienteModel cliente { get; set; }
+        public List<ProvidersModel> providers { get; set; }
+
     }
+  
 }

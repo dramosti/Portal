@@ -1,6 +1,7 @@
 ﻿using HLP.Portal.MVC.Data.Repository;
 using HLP.Portal.MVC.Models;
 using HLP.Portal.MVC.Models.Adm;
+using HLP.Portal.MVC.Models.Registration;
 using HLP.Portal.MVC.Util;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,11 @@ namespace HLP.Portal.MVC.Controllers
         NoticiaRepository noticiaRep = new NoticiaRepository();
 
         public ActionResult Home()
-        {
-            base.SessionHomeModel = new HomeModel();
+        {           
             try
             {
+                var getUser = this.SessionUserModel;
+                base.SessionHomeModel = new HomeModel();
                 base.SessionHomeModel.CarrosselNoticias = noticiaRep.GetNoticiaCarrossel();
                 base.SessionHomeModel.DestaqueNoticias = noticiaRep.GetNoticiaDestaque();
             }
