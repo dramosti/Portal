@@ -178,16 +178,10 @@
     <Compile Include="Data\Contexto\tb_imagem.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Contexto\tb_modulo.cs">
-      <DependentUpon>PORTAL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Contexto\tb_modulo_item.cs">
-      <DependentUpon>PORTAL.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\Contexto\tb_noticias.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\Contexto\tb_segmento.cs">
+    <Compile Include="Data\Contexto\tb_providers.cs">
       <DependentUpon>PORTAL.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Contexto\tb_solicitecontato.cs">

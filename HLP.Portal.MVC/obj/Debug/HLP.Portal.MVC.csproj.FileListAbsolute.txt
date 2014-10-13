@@ -285,3 +285,4 @@ D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Org.Mentalis.Security.Cryptography.xml
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\Mono.Math.xml
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\MySql.Data.dll
 D:\GitHub\HLP\Portal\HLP.Portal.MVC\bin\MySql.Web.dll
+D:\GitHub\Portal\HLP.Portal.MVC\obj\Debug\HLP.Portal.MVC.csprojResolveAssemblyReference.cache
